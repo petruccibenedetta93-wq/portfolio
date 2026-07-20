@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Monogramma BP</title>
+  <rect width="64" height="64" rx="20" fill="#15251f"/>
+  <circle cx="45" cy="19" r="11" fill="#c8f45a"/>
+  <path d="M17 14h14c8 0 13 4 13 11 0 4-2 7-6 9 5 1 8 5 8 10 0 8-6 13-15 13H17V14Zm13 17c4 0 7-2 7-6s-3-5-7-5h-6v11h6Zm1 20c5 0 8-2 8-7 0-4-3-7-8-7h-7v14h7Z" fill="#fff"/>
+</svg>
