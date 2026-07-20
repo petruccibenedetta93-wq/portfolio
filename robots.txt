@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://petruccibenedetta93-wq.github.io/portfolio/sitemap.xml
