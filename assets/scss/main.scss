@@ -1,20 +1,30 @@
-$ink: #15251f;
-$paper: #f7f5ef;
-$surface: #ffffff;
-$lime: #c8f45a;
-$mint: #dff5e5;
-$lavender: #ded8ff;
-$blue: #2453ff;
-$muted: #5d6863;
-$line: rgba(21, 37, 31, 0.16);
-$shadow: 0 24px 70px rgba(21, 37, 31, 0.12);
-$radius-sm: 0.85rem;
-$radius-md: 1.5rem;
-$radius-lg: 2.25rem;
-$container: 1180px;
+:root {
+  --color-text: #15251f;
+  --color-bg: #f7f5ef;
+  --color-surface: #ffffff;
+  --color-accent: #c8f45a;
+  --color-mint: #dff5e5;
+  --color-lavender: #ded8ff;
+  --color-primary: #2453ff;
+  --color-muted: #5d6863;
+  --color-border: rgba(21, 37, 31, 0.16);
+  --color-border-subtle: rgba(21, 37, 31, 0.1);
+  --color-border-strong: rgba(21, 37, 31, 0.34);
+  --color-header-bg: rgba(247, 245, 239, 0.9);
+  --color-surface-soft: rgba(255, 255, 255, 0.64);
+  --color-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --color-focus-shadow: rgba(36, 83, 255, 0.15);
+  --shadow-elevated: 0 24px 70px rgba(21, 37, 31, 0.12);
+  --shadow-interactive: 0 12px 24px rgba(21, 37, 31, 0.16);
+  --font-primary: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius-sm: 0.85rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2.25rem;
+  --container-max: 1180px;
+}
 
 @mixin focus-ring {
-  outline: 3px solid $blue;
+  outline: 3px solid var(--color-primary);
   outline-offset: 4px;
 }
 
@@ -35,9 +45,9 @@ html {
 
 body {
   margin: 0;
-  color: $ink;
-  background: $paper;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-primary);
   font-size: 1rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
@@ -67,12 +77,12 @@ textarea {
 }
 
 ::selection {
-  color: $ink;
-  background: $lime;
+  color: var(--color-text);
+  background: var(--color-accent);
 }
 
 .container-site {
-  width: min(calc(100% - 2rem), $container);
+  width: min(calc(100% - 2rem), var(--container-max));
   margin-inline: auto;
 }
 
@@ -84,8 +94,8 @@ textarea {
   padding: 0.75rem 1rem;
   transform: translateY(-180%);
   border-radius: 999px;
-  color: $surface;
-  background: $ink;
+  color: var(--color-surface);
+  background: var(--color-text);
 
   &:focus {
     transform: translateY(0);
@@ -96,8 +106,8 @@ textarea {
   position: sticky;
   z-index: 1000;
   top: 0;
-  border-bottom: 1px solid rgba(21, 37, 31, 0.1);
-  background: rgba(247, 245, 239, 0.9);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-header-bg);
   backdrop-filter: blur(16px);
 }
 
@@ -113,7 +123,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  color: $ink;
+  color: var(--color-text);
   font-weight: 800;
   letter-spacing: -0.03em;
   text-decoration: none;
@@ -124,7 +134,7 @@ textarea {
     display: grid;
     place-items: center;
     border-radius: 50%;
-    background: $lime;
+    background: var(--color-accent);
     font-size: 0.8rem;
   }
 }
@@ -137,15 +147,15 @@ textarea {
   a {
     padding: 0.65rem 0.9rem;
     border-radius: 999px;
-    color: $muted;
+    color: var(--color-muted);
     font-size: 0.92rem;
     font-weight: 700;
     text-decoration: none;
 
     &:hover,
     &[aria-current="page"] {
-      color: $ink;
-      background: $surface;
+      color: var(--color-text);
+      background: var(--color-surface);
     }
   }
 }
@@ -159,9 +169,9 @@ textarea {
     min-height: 3rem;
     display: grid;
     place-items: center;
-    border: 1px solid $line;
+    border: 1px solid var(--color-border);
     border-radius: 50%;
-    background: $surface;
+    background: var(--color-surface);
     cursor: pointer;
     list-style: none;
 
@@ -176,21 +186,21 @@ textarea {
     right: 0;
     width: min(82vw, 19rem);
     padding: 0.75rem;
-    border: 1px solid $line;
-    border-radius: $radius-md;
-    background: $surface;
-    box-shadow: $shadow;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-elevated);
 
     a {
       display: block;
       padding: 0.9rem 1rem;
-      border-radius: $radius-sm;
+      border-radius: var(--radius-sm);
       font-weight: 750;
       text-decoration: none;
 
       &:hover,
       &[aria-current="page"] {
-        background: $mint;
+        background: var(--color-mint);
       }
     }
   }
@@ -201,7 +211,7 @@ textarea {
   align-items: center;
   gap: 0.55rem;
   margin: 0 0 1rem;
-  color: $muted;
+  color: var(--color-muted);
   font-size: 0.78rem;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -211,7 +221,7 @@ textarea {
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 50%;
-    background: $lime;
+    background: var(--color-accent);
     content: "";
   }
 }
@@ -245,12 +255,12 @@ h3 {
 
 .lead {
   max-width: 64ch;
-  color: $muted;
+  color: var(--color-muted);
   font-size: clamp(1.08rem, 1.7vw, 1.32rem);
 }
 
 .text-muted-site {
-  color: $muted;
+  color: var(--color-muted);
 }
 
 .highlight {
@@ -266,7 +276,7 @@ h3 {
     left: -0.04em;
     height: 0.28em;
     border-radius: 999px;
-    background: $lime;
+    background: var(--color-accent);
     content: "";
   }
 }
@@ -285,37 +295,37 @@ h3 {
   justify-content: center;
   gap: 0.55rem;
   padding: 0.8rem 1.25rem;
-  border: 1px solid $ink;
+  border: 1px solid var(--color-text);
   border-radius: 999px;
-  color: $surface;
-  background: $ink;
+  color: var(--color-surface);
+  background: var(--color-text);
   font-weight: 800;
   text-decoration: none;
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 
   &:hover {
-    color: $surface;
+    color: var(--color-surface);
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(21, 37, 31, 0.16);
+    box-shadow: var(--shadow-interactive);
   }
 
   &--secondary {
-    color: $ink;
+    color: var(--color-text);
     background: transparent;
 
     &:hover {
-      color: $ink;
-      background: $surface;
+      color: var(--color-text);
+      background: var(--color-surface);
     }
   }
 
   &--light {
-    border-color: $surface;
-    color: $ink;
-    background: $surface;
+    border-color: var(--color-surface);
+    color: var(--color-text);
+    background: var(--color-surface);
 
     &:hover {
-      color: $ink;
+      color: var(--color-text);
     }
   }
 }
@@ -345,10 +355,10 @@ h3 {
     z-index: 1;
     aspect-ratio: 1 / 1.08;
     overflow: hidden;
-    border: 1px solid $line;
-    border-radius: $radius-lg;
-    background: $lavender;
-    box-shadow: $shadow;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-lavender);
+    box-shadow: var(--shadow-elevated);
 
     img {
       width: 100%;
@@ -365,13 +375,13 @@ h3 {
     bottom: 1.25rem;
     max-width: 11rem;
     padding: 0.85rem 1rem;
-    border: 1px solid $ink;
-    border-radius: $radius-sm;
-    background: $lime;
+    border: 1px solid var(--color-text);
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
     font-size: 0.9rem;
     font-weight: 800;
     line-height: 1.25;
-    box-shadow: 6px 6px 0 $ink;
+    box-shadow: 6px 6px 0 var(--color-text);
   }
 
   &__shape {
@@ -381,30 +391,42 @@ h3 {
     width: 7rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: $lavender;
+    background: var(--color-lavender);
   }
 }
 
 .section {
   @include section-space;
 
+  &--flush-top {
+    padding-top: 0;
+  }
+
   &--white {
-    background: $surface;
+    background: var(--color-surface);
   }
 
   &--ink {
-    color: $surface;
-    background: $ink;
+    color: var(--color-surface);
+    background: var(--color-text);
 
     .lead,
     .text-muted-site {
-      color: rgba(255, 255, 255, 0.72);
+      color: var(--color-on-dark-muted);
     }
   }
 
   &--mint {
-    background: $mint;
+    background: var(--color-mint);
   }
+}
+
+.u-margin-top-md {
+  margin-top: 1.5rem;
+}
+
+.u-margin-top-lg {
+  margin-top: 3rem;
 }
 
 .section-heading {
@@ -427,7 +449,7 @@ h3 {
 
   &__item {
     padding: 1.4rem;
-    border-top: 1px solid $line;
+    border-top: 1px solid var(--color-border);
   }
 
   strong {
@@ -439,7 +461,7 @@ h3 {
   }
 
   span {
-    color: $muted;
+    color: var(--color-muted);
     font-size: 0.92rem;
   }
 }
@@ -455,9 +477,9 @@ h3 {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid $line;
-  border-radius: $radius-lg;
-  background: $surface;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
   transition: transform 220ms ease, box-shadow 220ms ease;
 
   &:first-child {
@@ -468,13 +490,13 @@ h3 {
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: $shadow;
+    box-shadow: var(--shadow-elevated);
   }
 
   &__media {
     min-height: 20rem;
     overflow: hidden;
-    background: $lavender;
+    background: var(--color-lavender);
 
     img {
       width: 100%;
@@ -497,7 +519,7 @@ h3 {
   }
 
   &__body p {
-    color: $muted;
+    color: var(--color-muted);
   }
 
   &__link {
@@ -517,10 +539,10 @@ h3 {
 
   li {
     padding: 0.36rem 0.7rem;
-    border: 1px solid $line;
+    border: 1px solid var(--color-border);
     border-radius: 999px;
-    color: $muted;
-    background: rgba(255, 255, 255, 0.64);
+    color: var(--color-muted);
+    background: var(--color-surface-soft);
     font-size: 0.76rem;
     font-weight: 750;
   }
@@ -537,9 +559,9 @@ h3 {
 .skill-card,
 .content-card {
   padding: clamp(1.35rem, 3vw, 2rem);
-  border: 1px solid $line;
-  border-radius: $radius-md;
-  background: $surface;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
 
   p:last-child,
   ul:last-child {
@@ -558,8 +580,8 @@ h3 {
   place-items: center;
   margin-bottom: 3rem;
   border-radius: 50%;
-  color: $ink;
-  background: $lime;
+  color: var(--color-text);
+  background: var(--color-accent);
   font-size: 0.8rem;
   font-weight: 850;
 }
@@ -571,16 +593,16 @@ h3 {
 .skill-card ul {
   margin: 0;
   padding-left: 1.1rem;
-  color: $muted;
+  color: var(--color-muted);
 }
 
 .cta-panel {
   position: relative;
   overflow: hidden;
   padding: clamp(2rem, 7vw, 5rem);
-  border-radius: $radius-lg;
-  color: $surface;
-  background: $ink;
+  border-radius: var(--radius-lg);
+  color: var(--color-surface);
+  background: var(--color-text);
 
   &::after {
     position: absolute;
@@ -589,7 +611,7 @@ h3 {
     width: 18rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: $lime;
+    background: var(--color-accent);
     content: "";
   }
 
@@ -616,10 +638,10 @@ h3 {
     gap: 1rem;
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid $line;
+    border-top: 1px solid var(--color-border);
 
     dt {
-      color: $muted;
+      color: var(--color-muted);
       font-size: 0.74rem;
       font-weight: 850;
       letter-spacing: 0.1em;
@@ -638,15 +660,15 @@ h3 {
   margin-inline: auto;
   padding: clamp(0.6rem, 1.5vw, 1rem);
   overflow: hidden;
-  border: 1px solid $line;
-  border-radius: $radius-lg;
-  background: $surface;
-  box-shadow: $shadow;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-elevated);
 
   img {
     width: 100%;
     height: auto;
-    border-radius: calc($radius-lg - 0.7rem);
+    border-radius: calc(var(--radius-lg) - 0.7rem);
   }
 }
 
@@ -668,13 +690,13 @@ h3 {
     a {
       display: block;
       padding: 0.55rem 0;
-      color: $muted;
+      color: var(--color-muted);
       font-size: 0.9rem;
       font-weight: 700;
       text-decoration: none;
 
       &:hover {
-        color: $ink;
+        color: var(--color-text);
       }
     }
   }
@@ -697,9 +719,9 @@ h3 {
 
   li {
     padding: 1.35rem;
-    border-left: 4px solid $lime;
-    border-radius: 0 $radius-sm $radius-sm 0;
-    background: $surface;
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--color-surface);
   }
 }
 
@@ -707,18 +729,18 @@ h3 {
   max-width: 820px;
   margin: 2rem auto;
   padding: clamp(0.65rem, 1.5vw, 1rem);
-  border: 1px solid $line;
-  border-radius: $radius-md;
-  background: $surface;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
 
   img {
     width: 100%;
-    border-radius: calc($radius-md - 0.55rem);
+    border-radius: calc(var(--radius-md) - 0.55rem);
   }
 
   figcaption {
     margin-top: 0.7rem;
-    color: $muted;
+    color: var(--color-muted);
     font-size: 0.86rem;
   }
 }
@@ -731,9 +753,9 @@ h3 {
 
   article {
     padding: clamp(1.25rem, 3vw, 1.8rem);
-    border: 1px solid $line;
-    border-radius: $radius-md;
-    background: $surface;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
   }
 
   h3 {
@@ -743,7 +765,7 @@ h3 {
   ul {
     margin: 0;
     padding-left: 1.1rem;
-    color: $muted;
+    color: var(--color-muted);
   }
 }
 
@@ -759,9 +781,9 @@ h3 {
     position: relative;
     min-height: 8.5rem;
     padding: 1.1rem;
-    border: 1px solid $line;
-    border-radius: $radius-sm;
-    background: $surface;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
 
     &:not(:last-child)::after {
       position: absolute;
@@ -774,8 +796,8 @@ h3 {
       place-items: center;
       transform: translateY(-50%);
       border-radius: 50%;
-      color: $surface;
-      background: $ink;
+      color: var(--color-surface);
+      background: var(--color-text);
       content: "→";
       font-size: 0.7rem;
     }
@@ -784,7 +806,7 @@ h3 {
   span {
     display: block;
     margin-bottom: 1.4rem;
-    color: $blue;
+    color: var(--color-primary);
     font-size: 0.75rem;
     font-weight: 850;
   }
@@ -798,8 +820,8 @@ h3 {
 .quote-block {
   margin: 2rem 0;
   padding: clamp(1.5rem, 4vw, 2.5rem);
-  border-radius: $radius-md;
-  background: $lavender;
+  border-radius: var(--radius-md);
+  background: var(--color-lavender);
   font-size: clamp(1.3rem, 2.6vw, 2rem);
   font-weight: 750;
   line-height: 1.25;
@@ -813,9 +835,9 @@ h3 {
 
   a {
     padding: 1.5rem;
-    border: 1px solid $line;
-    border-radius: $radius-md;
-    background: $surface;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
     font-weight: 800;
     text-decoration: none;
 
@@ -837,7 +859,7 @@ h3 {
     bottom: 0.8rem;
     left: 0.38rem;
     width: 1px;
-    background: $line;
+    background: var(--color-border);
     content: "";
   }
 
@@ -851,16 +873,16 @@ h3 {
       left: -2rem;
       width: 0.8rem;
       aspect-ratio: 1;
-      border: 3px solid $paper;
+      border: 3px solid var(--color-bg);
       border-radius: 50%;
-      background: $blue;
-      box-shadow: 0 0 0 1px $blue;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 1px var(--color-primary);
       content: "";
     }
   }
 
   time {
-    color: $muted;
+    color: var(--color-muted);
     font-size: 0.82rem;
     font-weight: 800;
   }
@@ -870,6 +892,12 @@ h3 {
   display: grid;
   grid-template-columns: minmax(14rem, 0.34fr) minmax(0, 0.66fr);
   gap: clamp(2rem, 8vw, 7rem);
+}
+
+.cv-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
 
 .contact-grid {
@@ -889,10 +917,14 @@ h3 {
 
 .form-card {
   padding: clamp(1.4rem, 4vw, 2.7rem);
-  border: 1px solid $line;
-  border-radius: $radius-lg;
-  background: $surface;
-  box-shadow: $shadow;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-elevated);
+}
+
+.form-card__title {
+  font-size: clamp(1.45rem, 2.4vw, 2.15rem);
 }
 
 .form-grid {
@@ -915,7 +947,7 @@ h3 {
   }
 
   small {
-    color: $muted;
+    color: var(--color-muted);
   }
 
   input,
@@ -924,14 +956,14 @@ h3 {
     width: 100%;
     min-height: 3.35rem;
     padding: 0.8rem 1rem;
-    border: 1px solid rgba(21, 37, 31, 0.34);
-    border-radius: $radius-sm;
-    color: $ink;
-    background: $surface;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    background: var(--color-surface);
 
     &:focus {
-      border-color: $blue;
-      box-shadow: 0 0 0 0.24rem rgba(36, 83, 255, 0.15);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 0.24rem var(--color-focus-shadow);
       outline: none;
     }
   }
@@ -951,18 +983,18 @@ h3 {
     width: 1.2rem;
     height: 1.2rem;
     margin-top: 0.22rem;
-    accent-color: $ink;
+    accent-color: var(--color-text);
   }
 }
 
 .required-note {
-  color: $muted;
+  color: var(--color-muted);
   font-size: 0.86rem;
 }
 
 .site-footer {
   padding-block: 3rem 2rem;
-  border-top: 1px solid $line;
+  border-top: 1px solid var(--color-border);
 
   &__grid {
     display: flex;
@@ -980,7 +1012,7 @@ h3 {
   small {
     display: block;
     margin-top: 1rem;
-    color: $muted;
+    color: var(--color-muted);
   }
 }
 
@@ -1128,7 +1160,7 @@ h3 {
   .form-card,
   .process-card,
   .skill-card {
-    border-color: $ink;
+    border-color: var(--color-text);
   }
 }
 

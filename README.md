@@ -15,12 +15,12 @@ Portfolio personale realizzato come progetto finale HTML e CSS del Master.
 ## Tecnologie
 
 - HTML5 semantico
-- Sass / CSS3
-- Bootstrap 5
+- Sass / CSS3 con custom properties
+- Utility CSS personalizzate
 - CSS Grid e Flexbox
 - GitHub Pages
 
-Il progetto non utilizza JavaScript personalizzato. Anche il menu mobile è realizzato con elementi HTML nativi e CSS.
+Il progetto non utilizza JavaScript personalizzato né dipendenze CSS esterne. Palette, tipografia, bordi e ombre sono gestiti attraverso custom properties definite in `:root`. Anche il menu mobile è realizzato con elementi HTML nativi e CSS.
 
 ## Avvio locale
 
@@ -42,7 +42,7 @@ npm run sass
 5. Selezionare il branch `main` e la cartella `/root`.
 6. Salvare e attendere la pubblicazione.
 
-Se il nome utente GitHub o il repository sono diversi, aggiornare i canonical URL, i tag Open Graph, `robots.txt` e `sitemap.xml` sostituendo `https://petruccibenedetta93-wq.github.io/portfolio/` con l’indirizzo definitivo.
+Se il nome utente GitHub o il repository sono diversi, aggiornare i canonical URL, i tag Open Graph, `robots.txt` e `sitemap.xml` sostituendo `https://benedettapetrucci.github.io/portfolio/` con l’indirizzo definitivo.
 
 ## Form di contatto
 
