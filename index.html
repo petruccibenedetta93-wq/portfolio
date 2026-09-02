@@ -11,7 +11,7 @@
   <meta property="og:title" content="Benedetta Petrucci — Communication, Design & Project Management Specialist">
   <meta property="og:description" content="Comunicazione, gestione progettuale e design per trasformare obiettivi complessi in esperienze chiare.">
   <meta property="og:url" content="https://petruccibenedetta93-wq.github.io/portfolio/">
-  <meta property="og:image" content="https://petruccibenedetta93-wq.github.io/portfolio/assets/images/benedetta-petrucci.png">
+  <meta property="og:image" content="https://petruccibenedetta93-wq.github.io/portfolio/assets/images/benedetta-cutout-hq.png">
   <meta property="og:image:alt" content="Ritratto professionale di Benedetta Petrucci">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://petruccibenedetta93-wq.github.io/portfolio/">
@@ -47,9 +47,9 @@
   </header>
 
   <main id="contenuto">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero hero--editorial" aria-labelledby="hero-title">
       <div class="container-site hero__grid">
-        <div>
+        <div class="hero__copy">
           <p class="eyebrow">Communication · Design · Project Management</p>
           <h1 id="hero-title">Idee complesse, progetti chiari, esperienze <span class="highlight">più umane.</span></h1>
           <p class="lead">Ciao, sono Benedetta. Lavoro tra comunicazione istituzionale, gestione progettuale, visual design e UX/UI, coordinando persone, contenuti e processi dall’idea alla realizzazione.</p>
@@ -57,18 +57,29 @@
             <a class="button" href="progetti.html">Scopri i progetti <span aria-hidden="true">↗</span></a>
             <a class="button button--secondary" href="cv.html">Consulta il CV</a>
           </div>
+          <div class="hero__signature" aria-hidden="true">
+            <span>Portfolio</span><span>Roma · Italia</span><span>2026</span>
+          </div>
         </div>
         <div class="hero__visual">
           <span class="hero__shape" aria-hidden="true"></span>
           <div class="hero__portrait">
-            <img src="assets/images/benedetta-petrucci.png" width="800" height="800" alt="Benedetta Petrucci, professionista della comunicazione, del design e del project management" fetchpriority="high">
+            <img class="hero__portrait-primary" src="assets/images/benedetta-cutout-hq.png" width="1086" height="1448" alt="Ritratto professionale di Benedetta Petrucci, UX/UI Designer e Digital Product Designer" fetchpriority="high">
           </div>
           <p class="hero__sticker">Aperta a opportunità professionali e collaborazioni trasversali.</p>
         </div>
       </div>
+      <a class="hero__scroll" href="#profilo"><span>Scroll to explore</span><i aria-hidden="true">↓</i></a>
     </section>
 
-    <section class="section section--white" aria-labelledby="about-title">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Communication</span><i>✦</i><span>Experience Design</span><i>✦</i><span>Project Management</span><i>✦</i><span>Creative Direction</span><i>✦</i>
+        <span>Communication</span><i>✦</i><span>Experience Design</span><i>✦</i><span>Project Management</span><i>✦</i><span>Creative Direction</span><i>✦</i>
+      </div>
+    </div>
+
+    <section class="section section--white" id="profilo" aria-labelledby="about-title">
       <div class="container-site">
         <div class="section-heading">
           <div>
@@ -217,5 +228,6 @@
       </nav>
     </div>
   </footer>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
