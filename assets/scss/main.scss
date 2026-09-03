@@ -894,6 +894,11 @@ h3 {
   gap: clamp(2rem, 8vw, 7rem);
 }
 
+// Keep the CV portrait sharp when the sidebar becomes a full-width column.
+.cv-portrait {
+  max-width: 22.5rem;
+}
+
 .cv-sidebar {
   display: grid;
   align-content: start;
