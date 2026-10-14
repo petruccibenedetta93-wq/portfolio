@@ -49,8 +49,10 @@
 
     document.querySelectorAll('a[href]').forEach((link) => {
       const url = new URL(link.href, window.location.href);
+      const isSameDocument = url.origin === window.location.origin &&
+        url.pathname === window.location.pathname;
       const isSameSitePage = url.origin === window.location.origin &&
-        url.pathname.endsWith('.html') && !link.target && url.href !== window.location.href;
+        url.pathname.endsWith('.html') && !link.target && !isSameDocument;
 
       if (!isSameSitePage) return;
 
