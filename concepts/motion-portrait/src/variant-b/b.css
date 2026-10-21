@@ -1,20 +1,9 @@
 @import '../shared/base.css';
 
-/* Focal position of the still: face centred on phones, to the right on tablets, centred on desktop. */
-.b-portrait {
-  left: 50%;
-  transform: translateX(-55%);
-}
-@media (min-width: 768px) {
-  .b-portrait {
-    left: 68%;
-  }
-}
-/* Centred (the template's lg value) put the headline across the mouth: kept right of centre. */
-@media (min-width: 1024px) {
-  .b-portrait {
-    left: 64%;
-  }
+/* The torso is cut flat in the photo: fade its lower edge into the backdrop instead of a hard line. */
+.b-stage {
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
 }
 
 .menu-b {

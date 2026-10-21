@@ -8,6 +8,8 @@ Benedetta ha scelto la **variante B · Editorial portrait** (adattamento del tem
 
 - Lo sviluppo prosegue **solo su B** (`src/variant-b/`, `app/b/`).
 - La **variante A** (Motion portrait / Pixel) resta nel repository solo come alternativa di confronto: non va più sviluppata né aggiornata.
+- **Correzione del 21 ottobre**: in B il ritratto è più piccolo (al massimo il 78% dell'altezza della finestra) e sta in un riquadro a destra, separato dalla colonna dei testi; titolo, descrizione, CTA e pillole stanno tutti a sinistra. Sotto i 1024 px il ritratto è un blocco a sé tra navigazione e testi, senza sovrapposizioni.
+- **Clip**: la clip image-to-video è approvata come idea; preventivo, prompt e fotogramma di partenza sono in `clip/`. Nessuna clip è stata generata.
 - Restano valide le condizioni della bozza: nessuna pubblicazione o modifica della home senza un'indicazione esplicita, nessun video generato, caratteri provvisori da verificare (Newsreader al posto di Askan Light).
 
 - **A · Motion portrait / Pixel**: nero, Inter + carattere pixel, ritratto protagonista a tutta pagina.
@@ -73,7 +75,7 @@ Per un futuro filmato personale, `src/shared/PortraitMedia.tsx` accetta già una
 
 - Nessun riferimento ad Adam Roberts, Grilled Pixels, Aurai, premi o contatori; monogramma BP originale disegnato su griglia pixel.
 - **A**: titolo "Do forma / alle idee, / progetto / esperienze" (righe 2 e 4 in pixel) al posto di "Do forma a nuove idee e creo esperienze", più naturale e con il verbo del mestiere. Interlinea 0,92 / 0,82 al posto di 0,72, che con VT323 sovrapponeva le righe. Su mobile e finestre basse il ritratto è nel flusso tra griglia e titolo, e la pagina scorre in verticale invece di tagliare il contenuto.
-- **B**: su desktop il ritratto è spostato a destra (64%) invece che al centro, perché centrato il titolo cadeva sulla bocca. Titolo ridotto a "Idee che prendono forma." per stare in due righe; il ruolo UX/UI è nel sottotitolo e nella prima pillola. Il form email del template è sostituito da due azioni reali (progetti, CV). Il menu è utilizzabile a ogni larghezza: link in linea da 768 px, hamburger sotto.
+- **B**: (superato dalla correzione del 21 ottobre, vedi sopra) ritratto fuori centro perché centrato il titolo cadeva sulla bocca. Titolo ridotto a "Idee che prendono forma." per stare in due righe; il ruolo UX/UI è nel sottotitolo e nella prima pillola. Il form email del template è sostituito da due azioni reali (progetti, CV). Il menu è utilizzabile a ogni larghezza: link in linea da 768 px, hamburger sotto.
 - Sfumature funzionali (alone dietro il ritratto, scurimento in basso) per separare la giacca nera dal fondo e tenere leggibili titolo e pulsanti.
 - La skill Taste vieta glass, pillole ed etichette maiuscole spaziate: qui prevale la specifica dei template richiesta dall'autrice.
 

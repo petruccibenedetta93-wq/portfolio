@@ -21,7 +21,9 @@ const variants = [
   { id: 'b', file: 'variante-b-editorial-portrait.html' },
 ]
 
-for (const v of variants) {
+// Optional filter, e.g. `node scripts/build-standalone.mjs b` rebuilds only variant B.
+const only = process.argv[2]
+for (const v of variants.filter((x) => !only || x.id === only)) {
   const cssOut = join(tmp, `${v.id}.css`)
   execFileSync(join(here, 'node_modules/.bin/tailwindcss'), ['-c', join(here, 'tailwind.config.ts'), '-i', join(here, `src/variant-${v.id}/${v.id}.css`), '-o', cssOut, '--minify'], { cwd: here, stdio: 'pipe' })
   const css = readFileSync(cssOut, 'utf8')

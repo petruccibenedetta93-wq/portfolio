@@ -20,14 +20,8 @@ export default function App() {
 
   return (
     <div className="relative min-h-[100svh] w-full overflow-x-clip bg-[#14181c] text-white">
-      {/* Media: studio-backdrop tone, portrait, and a functional low scrim for the copy */}
-      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_56%_30%,#56616c_0%,#2f373f_48%,#14181c_100%)] md:bg-[radial-gradient(ellipse_60%_70%_at_64%_32%,#56616c_0%,#2f373f_48%,#14181c_100%)] lg:bg-[radial-gradient(ellipse_55%_75%_at_62%_30%,#56616c_0%,#2f373f_50%,#14181c_100%)]" />
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div ref={driftRef} className="absolute inset-0 will-change-transform">
-          <PortraitMedia className="b-portrait absolute top-[4svh] h-[100svh] w-auto sm:min-h-full max-w-none select-none [filter:saturate(0.9)_contrast(1.04)] sm:top-[6svh] desk:top-[5svh] desk:h-[112svh]" />
-        </div>
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-[#0d1013] via-[#0d1013]/75 to-transparent" />
-      </div>
+      {/* Studio-backdrop tone; on desktop the light sits behind the portrait on the right */}
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_80%_45%_at_50%_24%,#56616c_0%,#2f373f_50%,#14181c_100%)] lg:bg-[radial-gradient(ellipse_42%_70%_at_74%_42%,#56616c_0%,#2f373f_52%,#14181c_100%)]" />
 
       <div className="relative z-10 flex min-h-[100svh] flex-col px-4 py-4 sm:px-10 sm:py-8 lg:px-12">
         {/* Navigation */}
@@ -90,40 +84,40 @@ export default function App() {
           </div>
         </header>
 
-        {/* Mobile spacer keeps the face clear of the copy */}
-        <div className="min-h-[calc(48svh-3rem)] flex-1 sm:min-h-0" />
+        {/*
+          Portrait stage. Below lg it is its own block between navigation and copy; from lg it is a
+          box on the right whose left edge stays clear of the text column, and the still is contained
+          inside it, so face and hair never reach the copy (drift moves it by a few pixels at most).
+        */}
+        <div className="b-stage pointer-events-none relative mx-auto mt-4 h-[44svh] min-h-[240px] w-full max-w-[420px] lg:absolute lg:bottom-0 lg:right-[max(3rem,4vw)] lg:top-[15svh] lg:mx-0 lg:mt-0 lg:h-auto lg:w-[38%] lg:max-w-none">
+          <div ref={driftRef} className="absolute inset-0 will-change-transform">
+            <PortraitMedia className="absolute inset-0 h-full w-full select-none object-contain object-bottom [filter:saturate(0.9)_contrast(1.04)] lg:max-h-[78svh] lg:top-auto" />
+          </div>
+        </div>
 
-        <main inert={menu.open} className="flex flex-col pb-4 sm:mt-auto sm:pt-10 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:pb-12 lg:pb-16">
-          <div className="max-w-[700px]">
-            <h1 className="font-serif text-[2.5rem] font-light leading-[1.05] tracking-tight sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] [@media(max-height:560px)]:text-[2.75rem]">
-              Idee che prendono forma.
-            </h1>
-            <p className="mt-4 max-w-[520px] text-sm leading-relaxed text-white/80 sm:mt-6 sm:text-base md:text-lg">
-              Sono Benedetta, UX/UI designer con un background in comunicazione e visual design. Progetto interfacce chiare e identità riconoscibili.
-            </p>
+        <div className="hidden flex-1 lg:block" />
 
-            <div className={`mt-6 flex w-full max-w-[520px] items-center justify-between gap-2 rounded-full p-1.5 sm:mt-8 ${glass}`}>
-              <a href={site.projects} className="press inline-flex min-h-12 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white px-4 min-[360px]:px-5 text-sm font-medium text-gray-900 hover:bg-white/90 sm:flex-none sm:px-7">
-                Esplora i progetti
-                <ArrowRight size={16} aria-hidden="true" />
-              </a>
-              <a href={site.cv} className="press inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full px-4 text-sm font-medium text-white hover:bg-white/10 min-[360px]:px-5 sm:px-7">
-                Vedi il CV
-              </a>
-            </div>
+        <main inert={menu.open} className="relative mt-6 flex flex-col pb-6 lg:mt-0 lg:max-w-[min(700px,50vw)] lg:pb-14">
+          <h1 className="font-serif text-[2.5rem] font-light leading-[1.05] tracking-tight sm:text-[3.5rem] lg:text-[clamp(3.5rem,11svh,5.5rem)]">
+            Idee che prendono forma.
+          </h1>
+          <p className="mt-4 max-w-[520px] text-sm leading-relaxed text-white/80 sm:mt-6 sm:text-base md:text-lg">
+            Sono Benedetta, UX/UI designer con un background in comunicazione e visual design. Progetto interfacce chiare e identità riconoscibili.
+          </p>
 
-            <ul className="mt-4 flex flex-wrap gap-2 sm:hidden" aria-label="Ambiti">
-              {pills.map((p) => (
-                <li key={p} className="rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs backdrop-blur-md">
-                  {p}
-                </li>
-              ))}
-            </ul>
+          <div className={`mt-6 flex w-full max-w-[520px] items-center justify-between gap-2 rounded-full p-1.5 sm:mt-8 ${glass}`}>
+            <a href={site.projects} className="press inline-flex min-h-12 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white px-4 min-[360px]:px-5 text-sm font-medium text-gray-900 hover:bg-white/90 sm:flex-none sm:px-7">
+              Esplora i progetti
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <a href={site.cv} className="press inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full px-4 text-sm font-medium text-white hover:bg-white/10 min-[360px]:px-5 sm:px-7">
+              Vedi il CV
+            </a>
           </div>
 
-          <ul className="hidden flex-col items-end gap-2 self-end sm:flex" aria-label="Ambiti">
+          <ul className="mt-4 flex flex-wrap gap-2 sm:mt-6" aria-label="Ambiti">
             {pills.map((p) => (
-              <li key={p} className="whitespace-nowrap rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs backdrop-blur-md sm:text-sm">
+              <li key={p} className="rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs backdrop-blur-md sm:px-4 sm:py-2 sm:text-sm">
                 {p}
               </li>
             ))}
