@@ -2,6 +2,14 @@
 
 Proposta visiva **isolata e non pubblicata** per la home del portfolio. Non sostituisce `index.html` e non modifica il resto del sito: tutto vive in questa cartella.
 
+## Decisione di direzione (21 ottobre 2026)
+
+Benedetta ha scelto la **variante B · Editorial portrait** (adattamento del template Aurai) come base del portfolio: il suo ritratto reale, serif leggera, superfici glass, azioni verso Progetti, CV e Contatti.
+
+- Lo sviluppo prosegue **solo su B** (`src/variant-b/`, `app/b/`).
+- La **variante A** (Motion portrait / Pixel) resta nel repository solo come alternativa di confronto: non va più sviluppata né aggiornata.
+- Restano valide le condizioni della bozza: nessuna pubblicazione o modifica della home senza un'indicazione esplicita, nessun video generato, caratteri provvisori da verificare (Newsreader al posto di Askan Light).
+
 - **A · Motion portrait / Pixel**: nero, Inter + carattere pixel, ritratto protagonista a tutta pagina.
 - **B · Editorial portrait**: serif leggero, superfici glass, fondale da studio.
 
