@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+__HEADMETA__
+<title>Benedetta Petrucci — UX/UI Designer</title>
+<script>
+(function(r){try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&typeof r.animate==="function"){r.classList.add("px-intro");window.__pxFailsafe=setTimeout(function(){r.classList.remove("px-intro")},4000)}}catch(e){}})(document.documentElement);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- The PX Mono / PX Sans woff2 files of the template are not available: the prompt's own fallback faces are loaded instead. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=block">
+<link rel="stylesheet" href="assets/css/parallax.css">
+<style>
+:root{
+  /* Charcoal palette taken from the photo's own studio gradient. */
+  --bg:#161a1f;
+  --bg-2:#1e242a;
+  --bg-3:#2f373f;
+  --ink:#ffffff;
+  --ink-2:rgba(255,255,255,.78);
+  --panel:#000000;
+  --ring:rgba(255,255,255,.5);
+  --vw:100vw; --vh:100vh;
+  --sc:max(calc(var(--vw) / 1280), calc(var(--vh) / 800));
+  --u:clamp(.72px, min(calc(var(--vw) / 1280), calc(var(--vh) / 800)), 3px);
+  --mono:"PX Mono","Roboto Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"PX Sans",Inter,"Helvetica Neue",Arial,system-ui,sans-serif;
+  /* Chrome type never drops below 13px, whatever the scale. */
+  --t-copy:max(13px, calc(14 * var(--u)));
+  --lh-copy:max(17px, calc(17.5 * var(--u)));
+  /* Scene placement and title position, in 1280x800 scene units. */
+  --scene-x:calc(50% - 640 * var(--sc));
+  --tx:600; --ty:340; --ts:46;
+  --gutter:max(20px, env(safe-area-inset-left, 0px));
+}
+@supports (height:100dvh){ :root{ --vh:100dvh; } }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:geometricPrecision;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:clip}
+a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-100px;z-index:10;background:#fff;color:#000;padding:12px 16px;font:500 15px/1 var(--sans);text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- Hero: the PARALLAX scene ---------- */
+.hero{position:relative;height:var(--vh);min-height:540px;overflow:hidden;background:var(--bg)}
+.scene{position:absolute;left:var(--scene-x);top:50%;width:calc(1280 * var(--sc));height:calc(800 * var(--sc));transform:translateY(-50%)}
+.scene>svg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+/* Layout-only placement of the 16:9 photo (not edited): scaled to 880 scene units and moved so the face sits
+   inside the right-hand rings (face ~ x 949-1071, y 312-492) and no ring or text crosses it. */
+.scene>img{position:absolute;display:block;left:calc(-147 * var(--sc));top:calc(-10 * var(--sc));width:calc(1564.4 * var(--sc));height:calc(880 * var(--sc));object-fit:cover;max-width:none;user-select:none;-webkit-user-drag:none}
+.rings path{fill:none;stroke:var(--ring);stroke-width:1;stroke-linecap:butt}
+.title{position:absolute;z-index:2;left:calc((var(--tx) - 635) * var(--sc));width:calc(635 * 2 * var(--sc));top:calc(var(--ty) * var(--sc));
+  font:400 calc(var(--ts) * var(--sc))/1 var(--sans);font-kerning:none;letter-spacing:-0.01em;color:var(--ink);text-align:center;white-space:nowrap}
+.title .word{display:block}
+.title .word span{display:inline-block;margin-left:calc(var(--k,0) * var(--sc))}
+.role{position:absolute;z-index:2;left:calc((var(--tx) - 635) * var(--sc));width:calc(635 * 2 * var(--sc));top:calc((var(--ty) + 2 * var(--ts) + 18) * var(--sc));
+  font:500 max(13px, calc(15 * var(--sc)))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;text-align:center;color:var(--ink)}
+/* The shared stylesheet adds margins to headings and paragraphs: the hero chrome is positioned, so it has none. */
+.hero h1,.hero p,.hero ul{margin:0}
+.ui{position:absolute;inset:0;pointer-events:none;z-index:3}
+.ui>*{pointer-events:auto}
+.copy{position:absolute;font:400 var(--t-copy)/var(--lh-copy) var(--mono);letter-spacing:-0.025em;color:var(--ink);text-transform:uppercase;white-space:nowrap}
+.copy a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;display:inline-block;padding:4px 0}
+.copy a:hover{opacity:.75}
+.copy--tl{left:calc(34.5 * var(--u));top:calc(46.6 * var(--u))}
+.copy--tr{right:calc(45 * var(--u));top:calc(39 * var(--u));text-align:right}
+.copy--bl{left:calc(34.5 * var(--u));bottom:calc(39.5 * var(--u))}
+.copy--br{right:calc(45 * var(--u));bottom:calc(39.5 * var(--u));text-align:right}
+.nav{position:absolute;top:calc(29.5 * var(--u));left:calc(50% - 5 * var(--u));transform:translateX(-50%);
+  width:calc(300.5 * var(--u));height:max(44px, calc(53.7 * var(--u)));background:var(--panel);display:flex;align-items:center;justify-content:space-between;
+  padding:0 calc(15 * var(--u)) 0 calc(9 * var(--u));z-index:4}
+.logo{display:block;color:var(--ink);text-decoration:none;font:700 max(28px, calc(39 * var(--u)))/1 var(--sans);letter-spacing:-0.01em;transform:translateY(calc(-5 * var(--u)))}
+.menu{position:relative;width:max(17px, calc(17 * var(--u)));height:max(8.3px, calc(8.3 * var(--u)));background:none;border:0;cursor:pointer;transform:translateY(calc(-0.5 * var(--u)))}
+/* 44px hit area around the drawn rules. */
+.menu::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
+.menu i{position:absolute;left:0;right:0;height:max(1px,calc(1 * var(--u)));background:var(--ink);transition:transform .2s}
+.menu i:first-child{top:0}.menu i:last-child{bottom:0}
+.menu[aria-expanded="true"] i:first-child{transform:translateY(calc(3.65 * var(--u))) rotate(28deg)}
+.menu[aria-expanded="true"] i:last-child{transform:translateY(calc(-3.65 * var(--u))) rotate(-28deg)}
+.panel{position:absolute;left:0;right:0;top:100%;background:var(--panel);padding:4px calc(15 * var(--u)) 12px calc(9 * var(--u))}
+.panel[hidden]{display:none}
+.panel ul{list-style:none}
+.panel a{display:flex;align-items:center;justify-content:space-between;min-height:48px;color:var(--ink);text-decoration:none;
+  font:400 max(14px, calc(14 * var(--u)))/1.2 var(--mono);letter-spacing:-0.025em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.2)}
+.panel li:first-child a{border-top:0}
+.panel a:hover{opacity:.75}
+.ctas{position:absolute;left:calc(35 * var(--u));bottom:calc(98 * var(--u));display:flex;flex-direction:column;gap:calc(9 * var(--u))}
+.btn{display:flex;align-items:center;justify-content:center;min-width:calc(172 * var(--u));height:max(44px, calc(45 * var(--u)));padding:0 16px;background:var(--panel);color:var(--ink);text-decoration:none;
+  font:400 var(--t-copy)/1 var(--mono);letter-spacing:-0.025em;text-transform:uppercase;white-space:nowrap;padding-top:calc(0.5 * 2 * var(--u));transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:var(--panel)}
+/* Portrait screens: move the scene so the subject stays in view, and set the name under her face. */
+@media (orientation:portrait){
+  :root{ --scene-x:max(calc(50% - 1010 * var(--sc)), calc(100% - 1280 * var(--sc))); --tx:1010; --ty:532; --ts:40; }
+}
+/* Small phones: give the hero a 660px floor (a short vertical scroll) instead of shrinking type and buttons. */
+@media (orientation:portrait) and (max-height:660px){ :root{ --vh:660px; --ty:528; --ts:36; } }
+@media (orientation:portrait) and (min-width:561px){ :root{ --u:clamp(.72px, calc(var(--vw) / 860), 1.6px); } }
+@media (max-width:560px){
+  :root{ --u:clamp(.72px, calc(var(--vw) / 470), 1px); }
+  .nav{left:calc(20 * var(--u));right:calc(20 * var(--u));width:auto;transform:none;top:calc(20 * var(--u))}
+  .copy--tl{left:calc(20 * var(--u));top:calc(96 * var(--u) + 14px)}
+  .copy--tr{right:calc(20 * var(--u));top:calc(96 * var(--u) + 14px)}
+  .copy--bl{left:calc(20 * var(--u));bottom:calc(24 * var(--u))}
+  .ctas{left:calc(20 * var(--u));bottom:calc(76 * var(--u) + 14px)}
+  .copy--br{right:calc(20 * var(--u));bottom:calc(24 * var(--u))}
+  .ctas{flex-direction:row;gap:8px}
+  .btn{min-width:0}
+}
+/* On portrait screens the name sits over the lower hair and blazer: a soft shadow keeps it crisp there. */
+@media (orientation:portrait){ .title,.role{text-shadow:0 1px 14px rgba(0,0,0,.55)} }
+/* Low landscape windows (phones turned sideways): keep the chrome compact. */
+@media (orientation:landscape) and (max-height:500px){
+  .copy--tr{display:none}
+  .ctas{flex-direction:row;bottom:calc(39.5 * var(--u) + 48px)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important} html{scroll-behavior:auto}}
+.ln{display:block}
+.ln>span{display:inline-block}
+.px-intro .rings path{stroke-dasharray:0 100000}
+.px-intro .title .word{overflow:hidden}
+.px-intro .title .word span{translate:0 105%}
+.px-intro .ln{overflow:hidden}
+.px-intro .ln>span{translate:0 105%}
+.px-intro .nav{clip-path:inset(0 50% 0 50%)}
+.px-intro .logo,.px-intro .menu{opacity:0}
+.px-intro .btn{clip-path:inset(0 100% 0 0)}
+.px-intro .lbl{opacity:0}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#progetti">Vai ai progetti</a>
+<header class="hero">
+  <div class="scene">
+    <img src="__IMG__" alt="Ritratto di Benedetta Petrucci: capelli lunghi castani con riga centrale, dolcevita e blazer neri, su fondo scuro" draggable="false">
+    <svg class="rings" viewBox="0 0 1280 800" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+__RINGS__
+    </svg>
+    <h1 class="title" id="hero-title" aria-label="Benedetta Petrucci, UX/UI e visual designer">__TITLE__</h1>
+    <p class="role" aria-hidden="true"><span class="ln"><span>UX/UI &amp; Visual Designer</span></span></p>
+  </div>
+  <div class="ui">
+    <nav class="nav" aria-label="Navigazione principale">
+      <a class="logo" href="index.html" aria-label="Benedetta Petrucci, home del portfolio">bp</a>
+      <button class="menu" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu-panel"><i></i><i></i></button>
+      <div class="panel" id="menu-panel" hidden>
+        <ul>
+          <li><a href="#profilo">Profilo <span aria-hidden="true">↓</span></a></li>
+          <li><a href="progetti.html">Progetti <span aria-hidden="true">→</span></a></li>
+          <li><a href="esperienza-federlus.html">Esperienza FederLUS <span aria-hidden="true">→</span></a></li>
+          <li><a href="cv.html">CV <span aria-hidden="true">→</span></a></li>
+          <li><a href="contatti.html">Contatti <span aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="copy copy--tl"><span class="ln"><span>Cerco ruoli UX/UI</span></span><span class="ln"><span>e visual design.</span></span></p>
+    <p class="copy copy--tr"><span class="ln"><span>Dal 2020 progetti</span></span><span class="ln"><span>e comunicazione</span></span><span class="ln"><span>in FederLUS.</span></span></p>
+    <div class="ctas">
+      <a class="btn" href="#progetti"><span class="lbl">Progetti ↓</span></a>
+      <a class="btn" href="assets/pdf/Benedetta_Petrucci_CV_UX_UI_IT_2026.pdf" download><span class="lbl">CV (PDF) ↓</span></a>
+    </div>
+    <p class="copy copy--bl"><span class="ln"><span>Roma, Italia</span></span><span class="ln"><span><a href="#contatti">Contattami</a></span></span></p>
+    <p class="copy copy--br"><span class="ln"><span><a href="#federlus">FederLUS</a></span></span><span class="ln"><span><a href="https://www.linkedin.com/in/benedetta-petrucci-5b333b328/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr"> (si apre in una nuova scheda)</span></a></span></span></p>
+  </div>
+</header>
+
+__SECTIONS__
+__FOOTER__
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains("px-intro")) return;
+  var EXPO ="cubic-bezier(.16,1,.3,1)",
+      DRAW ="cubic-bezier(.62,.04,.22,1)",
+      PANEL="cubic-bezier(.77,0,.18,1)",
+      SOFT ="cubic-bezier(.25,1,.5,1)";
+  var narrow=matchMedia("(max-width:560px)").matches;
+  var S=narrow?.8:1;
+  var anims=[];
+  function $(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+  function add(el,kf,o){o.fill="both";anims.push(el.animate(kf,o))}
+  function play(){
+    var paths=$(".rings path");
+    var delay=[560,480,400, 560,480,400, 100,160,220,280,340,400];
+    paths.forEach(function(p,i){
+      var L=p.getTotalLength();
+      add(p,[{strokeDasharray:"0px "+L+"px",strokeDashoffset:(-L/2)+"px"},
+             {strokeDasharray:L+"px "+L+"px",strokeDashoffset:"0px"}],
+          {duration:i>5?1350:1150,delay:delay[i]*(i>5?1:S),easing:DRAW});
+    });
+    $(".title .word span").forEach(function(s,i){
+      add(s,[{translate:"0 105%"},{translate:"0 0"}],{duration:1000,delay:200+i*38*S,easing:EXPO});
+    });
+    add(document.querySelector(".nav"),[{clipPath:"inset(0 50% 0 50%)"},{clipPath:"inset(0 0% 0 0%)"}],{duration:800,delay:450,easing:PANEL});
+    $(".logo,.menu").forEach(function(e,i){
+      add(e,[{opacity:0,translate:"0 35%"},{opacity:1,translate:"0 0"}],{duration:600,delay:780+i*70,easing:SOFT});
+    });
+    function lines(sel,start){
+      $(sel+" .ln>span").forEach(function(s,i){
+        add(s,[{translate:"0 105%"},{translate:"0 0"}],{duration:800,delay:start+i*70*S,easing:EXPO});
+      });
+    }
+    lines(".role",620);
+    lines(".copy--tl",700); lines(".copy--tr",760);
+    $(".btn").forEach(function(b,i){
+      add(b,[{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)"}],{duration:750,delay:950+i*90*S,easing:PANEL});
+    });
+    $(".lbl").forEach(function(l,i){
+      add(l,[{opacity:0,translate:"0 .45em"},{opacity:1,translate:"0 0"}],{duration:550,delay:1200+i*90*S,easing:SOFT});
+    });
+    lines(".copy--bl",1100); lines(".copy--br",1160);
+    clearTimeout(window.__pxFailsafe);
+    Promise.all(anims.map(function(a){return a.finished})).then(function(){
+      root.classList.remove("px-intro");
+      anims.forEach(function(a){a.cancel()});
+      anims.length=0;
+    });
+  }
+  var img=document.querySelector(".scene>img");
+  var ready=Promise.all([document.fonts?document.fonts.ready:0, img&&img.decode?img.decode().catch(function(){}):0]);
+  var started=false;
+  function go(){ if(started) return; started=true; requestAnimationFrame(play); }
+  ready.then(go,go); setTimeout(go,1200);
+})();
+</script>
+<script>
+/* Menu: opens the panel under the bar; Escape, a click outside or a link closes it; Tab stays inside while open. */
+(function(){
+  var btn=document.querySelector(".menu"), panel=document.getElementById("menu-panel");
+  if(!btn||!panel) return;
+  function links(){return Array.prototype.slice.call(panel.querySelectorAll("a"))}
+  function open(){panel.hidden=false;btn.setAttribute("aria-expanded","true");btn.setAttribute("aria-label","Chiudi il menu");links()[0].focus();}
+  function close(back){panel.hidden=true;btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Apri il menu");if(back)btn.focus();}
+  btn.addEventListener("click",function(){panel.hidden?open():close(true)});
+  panel.addEventListener("click",function(e){if(e.target.closest("a"))close(false)});
+  document.addEventListener("click",function(e){if(!panel.hidden&&!e.target.closest(".nav"))close(false)});
+  document.addEventListener("keydown",function(e){
+    if(panel.hidden) return;
+    if(e.key==="Escape"){e.preventDefault();close(true);return}
+    if(e.key!=="Tab") return;
+    var items=[btn].concat(links()), first=items[0], last=items[items.length-1], a=document.activeElement;
+    if(e.shiftKey&&a===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&a===last){e.preventDefault();first.focus()}
+    else if(items.indexOf(a)<0){e.preventDefault();first.focus()}
+  });
+})();
+</script>
+</body>
+</html>
