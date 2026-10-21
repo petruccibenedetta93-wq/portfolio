@@ -297,13 +297,64 @@ ol {
   text-underline-offset: 6px;
 }
 
+.px-nav {
+  margin-left: auto;
+}
+
+/* Language switch (IT / EN): a 44px target with a drawn outline. */
+.px-lang {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  color: var(--px-ink);
+  font: 500 13px/1 var(--px-mono);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.px-lang::before {
+  content: "";
+  position: absolute;
+  inset: 7px 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.px-lang:hover::before {
+  border-color: var(--px-ink);
+}
+
+.px-lang,
+.px-menu-button {
+  flex-shrink: 0;
+}
+
 @media (max-width: 899.98px) {
   .px-nav {
     display: none;
   }
 
+  .px-lang {
+    margin-left: auto;
+  }
+
   .px-menu-button {
     display: block;
+  }
+}
+
+/* Narrow phones: the name wraps on two lines so the language switch and the menu keep 44px targets. */
+@media (max-width: 374.98px) {
+  .px-header__bar {
+    gap: 8px;
+  }
+
+  .px-brand__name {
+    max-width: 9ch;
+    line-height: 1.2;
   }
 }
 
@@ -318,6 +369,11 @@ ol {
   font: 400 13px/1.4 var(--px-mono);
   text-transform: uppercase;
   color: var(--px-ink-3);
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
 }
 
 .breadcrumb li:not(:last-child)::after {
