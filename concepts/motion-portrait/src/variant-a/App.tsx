@@ -9,6 +9,27 @@ import { usePointerDrift } from '../shared/usePointerDrift'
 const skills = ['UX research e test', 'Wireframe e prototipi', 'UI e design system', 'Visual identity', 'Video e contenuti']
 const chips = ['UX/UI Design', 'Visual Design', 'Video']
 
+// Rendered once per layout: above the portrait in the scrolling layout, beside the title on desktop.
+function Actions({ className = '' }: { className?: string }) {
+  return (
+    <div className={`flex-wrap items-center gap-x-6 gap-y-3 ${className}`}>
+      <a
+        href={site.projects}
+        className="press inline-flex min-h-11 items-center gap-2 border border-white/30 bg-white/5 px-6 py-3 text-sm tracking-wider backdrop-blur-sm hover:bg-white/10"
+      >
+        <ArrowUpRight size={14} aria-hidden="true" />
+        ESPLORA I PROGETTI
+      </a>
+      <a
+        href={site.cv}
+        className="press inline-flex min-h-11 items-center gap-2 text-sm tracking-wider underline decoration-white/40 underline-offset-[6px] hover:decoration-white"
+      >
+        VEDI IL CV
+      </a>
+    </div>
+  )
+}
+
 export default function App() {
   const menu = useMenu({ closeAbove: '(min-width: 768px)' })
   const driftRef = usePointerDrift<HTMLDivElement>(14)
@@ -24,7 +45,7 @@ export default function App() {
         className="relative z-10 flex min-h-[100svh] flex-col px-5 sm:px-6 md:px-10 lg:px-14"
       >
         {/* 1 · Navbar */}
-        <header className="flex items-center justify-between py-6">
+        <header className="flex items-center justify-between py-6 short:py-4">
           <a href={site.home} className="press -m-1 p-1 hover:opacity-70" aria-label="Benedetta Petrucci, vai alla home del portfolio">
             <Monogram />
           </a>
@@ -54,7 +75,7 @@ export default function App() {
 
         <main className="contents">
           {/* 2 · Meta grid */}
-          <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8 short:mt-0">
             <div>
               <h1 className="leading-tight">
                 <span className="block text-lg tracking-wide md:text-xl">BENEDETTA</span>
@@ -94,6 +115,8 @@ export default function App() {
             </section>
           </div>
 
+          <Actions className="mt-6 flex desk:hidden" />
+
           {/* Portrait: in the flow on small or low windows, full-bleed behind the grid on desktop */}
           <figure className="pointer-events-none relative -mx-5 mt-6 h-[min(70svh,600px)] min-h-[340px] sm:min-h-[440px] overflow-hidden sm:-mx-6 md:-mx-10 lg:-mx-14 desk:absolute desk:inset-0 desk:-z-10 desk:m-0 desk:h-auto desk:min-h-0">
             <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_42%_58%_at_50%_42%,rgba(255,255,255,0.11),transparent_72%)]" />
@@ -111,7 +134,7 @@ export default function App() {
           {/* 4 · Bottom */}
           <div className="relative -mt-28 pb-4 sm:-mt-32 desk:mt-0">
             <div className="grid grid-cols-1 items-end gap-4 sm:gap-6 lg:grid-cols-2">
-              <h2 className="text-3xl font-normal uppercase leading-[0.92] tracking-wide sm:text-4xl md:text-5xl lg:text-[3.75rem] xl:text-[4.25rem]">
+              <h2 className="text-3xl font-normal uppercase leading-[0.92] tracking-wide sm:text-4xl md:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] short:text-[clamp(2.5rem,8svh,3.75rem)]">
                 <span className="block">Do forma</span>
                 <span className="block font-pixel text-[1.25em] leading-[0.82]">alle idee,</span>
                 <span className="block">progetto</span>
@@ -119,21 +142,7 @@ export default function App() {
               </h2>
 
               <div className="flex flex-col justify-end gap-4 sm:gap-6 lg:items-end">
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                  <a
-                    href={site.projects}
-                    className="press inline-flex min-h-11 items-center gap-2 border border-white/30 bg-white/5 px-6 py-3 text-sm tracking-wider backdrop-blur-sm hover:bg-white/10"
-                  >
-                    <ArrowUpRight size={14} aria-hidden="true" />
-                    ESPLORA I PROGETTI
-                  </a>
-                  <a
-                    href={site.cv}
-                    className="press inline-flex min-h-11 items-center gap-2 text-sm tracking-wider underline decoration-white/40 underline-offset-[6px] hover:decoration-white"
-                  >
-                    VEDI IL CV
-                  </a>
-                </div>
+                <Actions className="hidden desk:flex" />
                 <ul className="flex flex-wrap gap-2" aria-label="Ambiti">
                   {chips.map((c) => (
                     <li key={c} className="flex items-center gap-2 bg-[#0B0B0B] px-3 py-2 font-pixel text-base uppercase leading-none tracking-wider text-white/85 sm:px-4">
@@ -145,7 +154,7 @@ export default function App() {
               </div>
             </div>
 
-            <footer className="mt-4 grid grid-cols-1 gap-2 pt-4 text-xs text-white/60 sm:mt-5 sm:grid-cols-2 sm:gap-4">
+            <footer className="mt-4 grid grid-cols-1 gap-2 pt-4 text-xs text-white/60 sm:mt-5 sm:grid-cols-2 sm:gap-4 short:mt-3 short:pt-2">
               <p>Roma, Italia · UX/UI design, visual design, comunicazione</p>
               <p className="sm:text-right">
                 <a href={site.contacts} className="text-red-500 transition-colors hover:text-red-400">
