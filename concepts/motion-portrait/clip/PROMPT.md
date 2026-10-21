@@ -1,6 +1,15 @@
 # Clip image-to-video per la variante B: preventivo e prompt
 
-Stato: **preparata, non generata**. L'idea della clip è approvata; l'importo in crediti va ancora approvato da Benedetta.
+Stato: **non generata, bloccata dal piano**. Benedetta ha approvato una prova Kling 3.0 pro, 5 s, entro 8,75 crediti.
+
+## Tentativo del 21 ottobre 2026: rifiutato dal piano
+
+- Stima immediatamente prima dell'invio (foto originale come start ed end, prompt per la foto originale, 5 s, pro, 16:9, audio spento, 1 clip): **8,75 crediti**. Higgsfield aveva suggerito il preset "IN THE DARK"; è stato rifiutato per restare sul modello approvato.
+- Invio con `use_unlim: false`: risposta esatta di Higgsfield **"Error starting generation: Requires plus plan or higher."**
+- Nessun job creato, quindi **nessun job id**. Saldo dopo il tentativo: **10 crediti, piano free** (nessun credito speso).
+- Non è stato cambiato modello, non è stato fatto alcun acquisto o upgrade, non ci sono stati altri tentativi.
+- Il preventivo restituito da `get_cost` non segnala il requisito del piano: va tenuto presente per gli altri modelli in tabella, il cui accesso con piano free non è verificato.
+- Per procedere serve una decisione di Benedetta: passare a un piano Plus o superiore, oppure approvare un altro modello (da verificare prima che sia accessibile con il piano free).
 
 ## Piano eseguibile scelto (21 ottobre 2026)
 
