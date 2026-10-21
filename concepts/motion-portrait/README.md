@@ -7,7 +7,16 @@ Proposta visiva **isolata e non pubblicata** per la home del portfolio. Non sost
 
 Entrambe usano lo stesso ritratto reale (`assets/images/benedetta-cutout-hq.png`, riusato dal repository senza copiarlo), gli stessi contenuti professionali e solo link a pagine esistenti: `progetti.html`, `index.html#profilo`, `cv.html`, `contatti.html`, LinkedIn.
 
-## Aprire la bozza
+## Aprire la bozza senza terminale
+
+Nella cartella `standalone/` ci sono due file HTML autonomi, uno per variante:
+
+- `standalone/variante-a-motion-portrait.html`
+- `standalone/variante-b-editorial-portrait.html`
+
+Basta un doppio clic per aprirli nel browser: JavaScript, CSS e ritratto (il PNG originale, invariato) sono incorporati nel file. I caratteri arrivano da Google Fonts, quindi serve la connessione; offline compaiono i caratteri di sistema. I link della navigazione portano alle pagine reali del portfolio online. Per rigenerarli: `npm run build:standalone`.
+
+## Aprire la bozza con un server locale
 
 La cartella `preview/` contiene la build già pronta. Serve un server statico avviato dalla **radice del repository** (i moduli JavaScript non si aprono con `file://`):
 
