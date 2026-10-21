@@ -1,6 +1,8 @@
 # Portfolio UX/UI — Benedetta Petrucci
 
-Portfolio personale realizzato come progetto finale HTML e CSS del Master, ridisegnato nel 2026 con il sistema visivo **PARALLAX** (ramo di lavoro, in revisione prima della pubblicazione).
+Portfolio personale realizzato come progetto finale HTML e CSS del Master, ridisegnato nel 2026 con il sistema visivo **PARALLAX**.
+
+Sito pubblicato: https://petruccibenedetta93-wq.github.io/portfolio/
 
 ## Redesign PARALLAX
 
@@ -10,7 +12,6 @@ Portfolio personale realizzato come progetto finale HTML e CSS del Master, ridis
 - Ogni case study si apre con una sintesi (tipo di progetto, problema, utenti e obiettivo, ruolo e contributo, scelte, output, risultati documentati e limiti) e i materiali originali (Figma, PDF), poi l'indice e gli approfondimenti; in fondo progetto precedente, tutti i progetti e progetto successivo.
 - URL e ancore restano invariati. Il modulo di contatto continua a inviare tramite Formspree.
 - Le pagine sono generate da `tools/parallax/build_site.py` a partire dal contenuto originale (commit `fe39fa7`); `tools/parallax/inventory.py` verifica che non manchi nessun testo, immagine, documento, link o ancora e scrive `tools/parallax/INVENTARIO.md`.
-- `assets/css/main.css` e `assets/scss/` sono il foglio di stile precedente: restano nel repository ma non sono più collegati alle pagine.
 
 ## Contenuti
 
@@ -24,8 +25,7 @@ Portfolio personale realizzato come progetto finale HTML e CSS del Master, ridis
 ## Tecnologie
 
 - HTML5 semantico
-- Sass / CSS3 con custom properties
-- Utility CSS personalizzate
+- CSS3 con custom properties
 - CSS Grid e Flexbox
 - GitHub Pages
 
@@ -51,11 +51,11 @@ python3 tools/parallax/inventory.py
 5. Selezionare il branch `main` e la cartella `/root`.
 6. Salvare e attendere la pubblicazione.
 
-Se il nome utente GitHub o il repository sono diversi, aggiornare i canonical URL, i tag Open Graph, `robots.txt` e `sitemap.xml` sostituendo `https://benedettapetrucci.github.io/portfolio/` con l’indirizzo definitivo.
+Se l'indirizzo del sito cambia, aggiornare `SITE` in `tools/parallax/build_site.py`, rigenerare le pagine (canonical URL e tag Open Graph) e aggiornare `robots.txt` e `sitemap.xml`.
 
 ## Form di contatto
 
-Il form include label associate, campi obbligatori, tipi di input corretti, autocomplete e validazione HTML nativa. Prima della pubblicazione definitiva può essere collegato a EmailJS o a un servizio form compatibile con GitHub Pages.
+Il form include label associate, campi obbligatori, tipi di input corretti, autocomplete e validazione HTML nativa. I messaggi sono inviati tramite Formspree; la pagina lo dichiara e indica anche l'email diretta.
 
 ## Accessibilità
 
@@ -65,6 +65,6 @@ Il form include label associate, campi obbligatori, tipi di input corretti, auto
 - Contrasto cromatico elevato
 - Testi alternativi contestuali
 - Gerarchia semantica dei titoli
-- Supporto a `prefers-reduced-motion` e `prefers-contrast`
+- Supporto a `prefers-reduced-motion`
 - Layout responsive da mobile a desktop
-- Stili di stampa dedicati al CV
+- Stili di stampa essenziali (senza menu, piè di pagina e decorazioni)

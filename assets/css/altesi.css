@@ -1,7 +1,7 @@
 /*
   Farmacia Altesi + Altea: project visuals.
   CSS-drawn screens, Altea demo and preview card keep the original project palette (green #006635,
-  slate #2e3f59) inside the PARALLAX site. Extracted unchanged from the previous assets/css/main.css;
+  slate #2e3f59) inside the PARALLAX site. Extracted unchanged from the previous stylesheet (assets/css/main.css, now only in git history);
   the surrounding page chrome and explanatory components are styled in parallax.css.
 */
 :root {
