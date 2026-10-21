@@ -1,0 +1,40 @@
+@import '../shared/base.css';
+
+/* Focal position of the still: face centred on phones, to the right on tablets, centred on desktop. */
+.b-portrait {
+  left: 50%;
+  transform: translateX(-55%);
+}
+@media (min-width: 768px) {
+  .b-portrait {
+    left: 68%;
+  }
+}
+/* Centred (the template's lg value) put the headline across the mouth: kept right of centre. */
+@media (min-width: 1024px) {
+  .b-portrait {
+    left: 64%;
+  }
+}
+
+.menu-b {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 200ms cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 200ms;
+}
+.menu-b[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1), visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-b,
+  .menu-b[data-open='true'] {
+    transform: none;
+    transition: none;
+  }
+}
