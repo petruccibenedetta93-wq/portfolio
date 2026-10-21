@@ -1,6 +1,20 @@
-# Bozza: hero con ritratto (varianti A e B)
+# Bozza: hero con ritratto (PARALLAX corrente, B e A di confronto)
 
 Proposta visiva **isolata e non pubblicata** per la home del portfolio. Non sostituisce `index.html` e non modifica il resto del sito: tutto vive in questa cartella.
+
+## Direzione corrente: PARALLAX (21 ottobre 2026)
+
+Benedetta ha scelto di lavorare sul prompt MotionSites "Parallax" (`https://motionsites.ai/?prompt=parallex`) per il portfolio, con la sua foto e i colori carbone già usati. **B · Editorial portrait resta come backup e confronto**; A resta solo alternativa.
+
+- **Dove**: `parallax/src/` (template, `rings.paths.txt` con i 12 tracciati), `parallax/index.html` (build per il repository), `standalone/benedetta-parallax.html` (file unico con la foto incorporata, si apre con doppio clic). Build: `node scripts/build-parallax.mjs` (repository), `... standalone`, `... artifact <cartella>`. Lo script verifica che i 12 `d` siano identici a `rings.paths.txt` e che non ci siano `href="#"`.
+- **Foto**: `parallax/assets/benedetta-16x9.jpg`, conversione JPEG di `clip/start-frame-16x9.png` (1920×1080, la foto originale su fondo carbone). Non è stata generata né ritoccata; nel layout è solo scalata e spostata (880 unità di scena) per portare il volto dentro gli archi di destra. Sugli schermi verticali la scena si sposta per tenere il volto al centro.
+- **Cosa resta del prompt**: 12 path esatti nell'ordine dato, disegno degli anelli dal centro, comparsa coordinata di lettere, testi, barra, logo, menu e pulsanti con gli stessi tempi e curve, doppia scala `--sc`/`--u`, regole mobile, focus, `prefers-reduced-motion` senza ingresso.
+- **Adattamenti voluti da Benedetta**: identità e testi suoi (nessun "PX", nessuna campagna o premio), sfondo carbone `#161a1f` invece di `#3a5462`, nome su due righe con il ruolo sotto, menu funzionante (Escape, clic fuori, link, Tab confinato, area di tocco 44 px), testo dell'interfaccia mai sotto i 13 px, hero a tutto schermo seguito da sezioni scorrevoli (case study, FederLUS, contatti) invece di una pagina bloccata; sui telefoni piccoli l'hero ha un'altezza minima di 660 px e si scorre un poco invece di rimpicciolire testi e pulsanti.
+- **Percorsi**: un clic dalla home a Farmacia Altesi + Altea, JOJOB e INCLUDO; "Tutti i progetti" secondario; CV in PDF (italiano e inglese), email, LinkedIn e modulo di contatto reali; esperienza FederLUS con contesto, ruolo, contributo e progetti rappresentativi, più il link alla pagina esistente.
+- **Caratteri**: i file PX Mono / PX Sans del template non sono disponibili; si usano gli stack di ripiego previsti dal prompt, Inter e Roboto Mono da Google Fonts.
+- **Verifiche svolte** (tecniche, non test con utenti): Playwright a 1920×1080, 1440×900, 1383×695, 1062×590, 768×1024, 390×844, 320×568, 844×390; nessuno scorrimento orizzontale, nessun testo sul volto o sovrapposto ad altri testi, menu da tastiera e con clic, reduced-motion, link interni e PDF che rispondono 200.
+- **Avviso del controllo di design "flat type hierarchy"** su `parallax/src/template.html`: falso positivo. Le dimensioni sono scritte con `clamp()`/`calc()` in unità di scena e lo strumento non le risolve; nelle schermate i titoli di sezione misurano 34–60 px contro 17 px del testo e il nome nell'hero è nettamente più grande. Nessuna soppressione automatica è conservata nel repository.
+- **Proposta video** separata e non avviata: `clip/PROPOSTA-VIDEO.md`. Il 21 ottobre Benedetta ha fornito un breve video reale (nel suo spazio Adobe, non scaricabile da questo ambiente): è registrato lì con trattamento, storyboard e limiti. Non va pubblicato né usato nell'hero.
 
 ## Decisione di direzione (21 ottobre 2026)
 
