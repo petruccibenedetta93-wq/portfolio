@@ -50,7 +50,7 @@
   let responseTimer = null;
   demo.classList.add('is-enhanced');
 
-  const paths = {
+  const pathsIt = {
     prescription: {
       user: 'Come funziona l’invio di una ricetta?',
       bot: 'Nel concept il percorso ha tre momenti: invio dei dati, verifica del farmacista e conferma. La richiesta non equivale a un acquisto e la disponibilità resta da verificare.',
@@ -102,12 +102,67 @@
     }
   };
 
+  const pathsEn = {
+    prescription: {
+      user: 'How does sending a prescription work?',
+      bot: 'In the concept the journey has three moments: sending the details, pharmacist review and confirmation. A request is not a purchase and availability still has to be checked.',
+      choices: [
+        ['prescription-data', 'What details are needed?'],
+        ['prescription-modes', 'Collection or delivery?'],
+        ['pharmacist', 'When does the pharmacist step in?']
+      ]
+    },
+    'prescription-data': {
+      user: 'What details are needed?',
+      bot: 'The prototype asks for the prescription number (NRE), the patient’s tax code and a contact. Do not enter real data here: this is only a demo of the designed behaviour.',
+      choices: [
+        ['prescription-modes', 'What happens after sending?'],
+        ['pharmacist', 'When should I ask a person for help?']
+      ]
+    },
+    'prescription-modes': {
+      user: 'What happens after sending?',
+      bot: 'The pharmacist checks the request. Only after that review does the pharmacy confirm availability and the possible collection or delivery options.',
+      choices: [
+        ['availability', 'How is availability checked?'],
+        ['pharmacist', 'When does the pharmacist step in?']
+      ]
+    },
+    availability: {
+      user: 'How is availability checked?',
+      bot: 'In the intended flow Altea can prepare a request, but it cannot promise stock. Availability is confirmed by the pharmacy; if some information is missing, the pharmacist steps in.',
+      choices: [
+        ['prescription', 'How does the prescription flow work?'],
+        ['pharmacist', 'When is the handoff to a person?']
+      ]
+    },
+    services: {
+      user: 'How do I find services and opening hours?',
+      bot: 'In the concept Altea guides people through services, events, opening hours and contacts. For a booking it shows the request status and the next step, without promising an automatic confirmation.',
+      choices: [
+        ['availability', 'How do I ask about availability?'],
+        ['pharmacist', 'When does the pharmacist step in?']
+      ]
+    },
+    pharmacist: {
+      user: 'When does the pharmacist step in?',
+      bot: 'For personal or clinical questions the concept provides an always-visible handoff, with a summary and explicit consent before sharing the authorised context. This demo does not open contacts or share any data.',
+      choices: [
+        ['prescription', 'How does the prescription flow work?'],
+        ['services', 'How do I find services and opening hours?']
+      ]
+    }
+  };
+
+  const english = document.documentElement.lang === 'en';
+  const paths = english ? pathsEn : pathsIt;
+
   const appendMessage = (text, type) => {
     const message = document.createElement('p');
     message.className = `altea-message altea-message--${type}`;
     const speaker = document.createElement('span');
     speaker.className = 'sr-only';
-    speaker.textContent = type === 'bot' ? 'Altea: ' : 'Tu: ';
+    speaker.textContent = type === 'bot' ? 'Altea: ' : (english ? 'You: ' : 'Tu: ');
     message.append(speaker, text);
     messages.append(message);
     messages.scrollTo({ top: messages.scrollHeight, behavior: reduceMotion ? 'auto' : 'smooth' });

@@ -4,16 +4,16 @@ Confronto automatico (`tools/parallax/inventory.py`) tra il contenuto di `<main>
 
 | Pagina (URL invariato) | Testi prima | Immagini | Documenti | Link esterni | Ancore | Testi dopo | Testi mancanti | Testi spostati su altra pagina | Asset/link mancanti | Ancore mancanti |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| index.html | 106 | 3 | 0 | 0 | 9 | 149 | 0 | 18 | 0 | 0 |
-| progetti.html | 42 | 4 | 0 | 0 | 3 | 71 | 0 | 0 | 0 | 0 |
-| progetto-farmacia-altesi.html | 210 | 0 | 0 | 4 | 17 | 255 | 0 | 0 | 0 | 0 |
-| progetto-jojob.html | 158 | 5 | 7 | 2 | 11 | 195 | 0 | 0 | 0 | 0 |
-| progetto-includo.html | 53 | 2 | 1 | 0 | 6 | 99 | 0 | 0 | 0 | 0 |
-| progetto-linkedin-personal-branding.html | 78 | 4 | 1 | 1 | 7 | 125 | 0 | 0 | 0 | 0 |
-| progetto-ai.html | 66 | 1 | 1 | 0 | 6 | 111 | 0 | 0 | 0 | 0 |
-| esperienza-federlus.html | 93 | 0 | 0 | 0 | 11 | 148 | 0 | 0 | 0 | 0 |
-| cv.html | 146 | 1 | 2 | 2 | 18 | 165 | 0 | 0 | 0 | 0 |
-| contatti.html | 31 | 0 | 0 | 1 | 11 | 52 | 0 | 0 | 0 | 0 |
+| index.html | 106 | 3 | 0 | 0 | 9 | 152 | 0 | 18 | 0 | 0 |
+| progetti.html | 42 | 4 | 0 | 0 | 3 | 74 | 0 | 0 | 0 | 0 |
+| progetto-farmacia-altesi.html | 210 | 0 | 0 | 4 | 17 | 258 | 0 | 0 | 0 | 0 |
+| progetto-jojob.html | 158 | 5 | 7 | 2 | 11 | 198 | 0 | 0 | 0 | 0 |
+| progetto-includo.html | 53 | 2 | 1 | 0 | 6 | 102 | 0 | 0 | 0 | 0 |
+| progetto-linkedin-personal-branding.html | 78 | 4 | 1 | 1 | 7 | 128 | 0 | 0 | 0 | 0 |
+| progetto-ai.html | 66 | 1 | 1 | 0 | 6 | 114 | 0 | 0 | 0 | 0 |
+| esperienza-federlus.html | 93 | 0 | 0 | 0 | 11 | 151 | 0 | 0 | 0 | 0 |
+| cv.html | 146 | 1 | 2 | 2 | 18 | 168 | 0 | 0 | 0 | 0 |
+| contatti.html | 31 | 0 | 0 | 1 | 11 | 55 | 0 | 0 | 0 | 0 |
 
 ## Elementi mancanti
 

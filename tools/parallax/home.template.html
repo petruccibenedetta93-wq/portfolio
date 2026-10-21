@@ -74,6 +74,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px}
   width:calc(300.5 * var(--u));height:max(44px, calc(53.7 * var(--u)));background:var(--panel);display:flex;align-items:center;justify-content:space-between;
   padding:0 calc(15 * var(--u)) 0 calc(9 * var(--u));z-index:4}
 .logo{display:block;color:var(--ink);text-decoration:none;font:700 max(28px, calc(39 * var(--u)))/1 var(--sans);letter-spacing:-0.01em;transform:translateY(calc(-5 * var(--u)))}
+/* Language switch: a 44px target with a drawn outline, next to the menu. */
+.lang{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;margin-left:auto;margin-right:calc(14 * var(--u));
+  color:var(--ink);text-decoration:none;font:500 max(13px, calc(13 * var(--u)))/1 var(--mono);letter-spacing:.04em}
+.lang::before{content:"";position:absolute;inset:7px 2px;border:1px solid rgba(255,255,255,.45)}
+.lang:hover::before{border-color:var(--ink)}
 .menu{position:relative;width:max(17px, calc(17 * var(--u)));height:max(8.3px, calc(8.3 * var(--u)));background:none;border:0;cursor:pointer;transform:translateY(calc(-0.5 * var(--u)))}
 /* 44px hit area around the drawn rules. */
 .menu::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
@@ -126,7 +131,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .px-intro .ln{overflow:hidden}
 .px-intro .ln>span{translate:0 105%}
 .px-intro .nav{clip-path:inset(0 50% 0 50%)}
-.px-intro .logo,.px-intro .menu{opacity:0}
+.px-intro .logo,.px-intro .lang,.px-intro .menu{opacity:0}
 .px-intro .btn{clip-path:inset(0 100% 0 0)}
 .px-intro .lbl{opacity:0}
 
@@ -146,6 +151,7 @@ __RINGS__
   <div class="ui">
     <nav class="nav" aria-label="Navigazione principale">
       <a class="logo" href="index.html" aria-label="Benedetta Petrucci, home del portfolio">bp</a>
+      __LANG__
       <button class="menu" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu-panel"><i></i><i></i></button>
       <div class="panel" id="menu-panel" hidden>
         <ul>
@@ -196,7 +202,7 @@ __FOOTER__
       add(s,[{translate:"0 105%"},{translate:"0 0"}],{duration:1000,delay:200+i*38*S,easing:EXPO});
     });
     add(document.querySelector(".nav"),[{clipPath:"inset(0 50% 0 50%)"},{clipPath:"inset(0 0% 0 0%)"}],{duration:800,delay:450,easing:PANEL});
-    $(".logo,.menu").forEach(function(e,i){
+    $(".logo,.lang,.menu").forEach(function(e,i){
       add(e,[{opacity:0,translate:"0 35%"},{opacity:1,translate:"0 0"}],{duration:600,delay:780+i*70,easing:SOFT});
     });
     function lines(sel,start){
@@ -231,10 +237,11 @@ __FOOTER__
 /* Menu: opens the panel under the bar; Escape, a click outside or a link closes it; Tab stays inside while open. */
 (function(){
   var btn=document.querySelector(".menu"), panel=document.getElementById("menu-panel");
+  var EN=document.documentElement.lang==="en";
   if(!btn||!panel) return;
   function links(){return Array.prototype.slice.call(panel.querySelectorAll("a"))}
-  function open(){panel.hidden=false;btn.setAttribute("aria-expanded","true");btn.setAttribute("aria-label","Chiudi il menu");links()[0].focus();}
-  function close(back){panel.hidden=true;btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Apri il menu");if(back)btn.focus();}
+  function open(){panel.hidden=false;btn.setAttribute("aria-expanded","true");btn.setAttribute("aria-label",EN?"Close the menu":"Chiudi il menu");links()[0].focus();}
+  function close(back){panel.hidden=true;btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label",EN?"Open the menu":"Apri il menu");if(back)btn.focus();}
   btn.addEventListener("click",function(){panel.hidden?open():close(true)});
   panel.addEventListener("click",function(e){if(e.target.closest("a"))close(false)});
   document.addEventListener("click",function(e){if(!panel.hidden&&!e.target.closest(".nav"))close(false)});

@@ -5,6 +5,14 @@
 */
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const english = document.documentElement.lang === 'en';
+
+  /* Language switch: keep the section being read (both versions share the same ids). */
+  document.querySelectorAll('[data-lang-switch]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (location.hash && !link.hash) link.hash = location.hash;
+    });
+  });
 
   /* Menu: Escape, a click outside or a link closes it; Tab stays inside while open. */
   const button = document.querySelector('.px-menu-button');
@@ -14,13 +22,13 @@
     const open = () => {
       panel.hidden = false;
       button.setAttribute('aria-expanded', 'true');
-      button.setAttribute('aria-label', 'Chiudi il menu');
+      button.setAttribute('aria-label', english ? 'Close the menu' : 'Chiudi il menu');
       links()[0]?.focus();
     };
     const close = (returnFocus) => {
       panel.hidden = true;
       button.setAttribute('aria-expanded', 'false');
-      button.setAttribute('aria-label', 'Apri il menu');
+      button.setAttribute('aria-label', english ? 'Open the menu' : 'Apri il menu');
       if (returnFocus) button.focus();
     };
     button.addEventListener('click', () => (panel.hidden ? open() : close(true)));

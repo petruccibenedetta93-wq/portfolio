@@ -51,6 +51,33 @@ NAV = [
     ("contatti", "contatti.html", "Contatti"),
 ]
 
+# English version (tools/parallax/build_en.py): same pages under en/, with English file names.
+EN_SLUG = {
+    "index.html": "index.html",
+    "progetti.html": "projects.html",
+    "progetto-jojob.html": "project-jojob.html",
+    "progetto-farmacia-altesi.html": "project-farmacia-altesi.html",
+    "progetto-linkedin-personal-branding.html": "project-linkedin-personal-branding.html",
+    "progetto-includo.html": "project-includo.html",
+    "progetto-ai.html": "project-ai-assistant.html",
+    "esperienza-federlus.html": "experience-federlus.html",
+    "cv.html": "cv.html",
+    "contatti.html": "contact.html",
+}
+
+
+def lang_switch(name, css_class="px-lang", sr_class="sr-only"):
+    return (f'<a class="{css_class}" href="en/{EN_SLUG[name]}" hreflang="en" lang="en" data-lang-switch>'
+            f'EN<span class="{sr_class}">, English version</span></a>')
+
+
+def alternates(name):
+    it_url = SITE + ("" if name == "index.html" else name)
+    en_url = SITE + "en/" + ("" if name == "index.html" else EN_SLUG[name])
+    return (f'<link rel="alternate" hreflang="it" href="{it_url}">\n'
+            f'  <link rel="alternate" hreflang="en" href="{en_url}">\n'
+            f'  <link rel="alternate" hreflang="x-default" href="{it_url}">\n')
+
 
 def original(name):
     return subprocess.run(["git", "show", f"{ORIGIN}:{name}"], cwd=ROOT, check=True, capture_output=True, text=True).stdout
@@ -62,7 +89,7 @@ def rings_svg(css_class, indent="    "):
             f'aria-hidden="true" focusable="false">\n{paths}\n{indent}</svg>')
 
 
-def header(current, exact):
+def header(current, exact, name):
     """current: active section; exact: True when this page is the section page itself."""
     state = ' aria-current="page"' if exact else ' aria-current="true"'
     items = []
@@ -78,13 +105,14 @@ def header(current, exact):
     <div class="px-header__bar">
       <a class="px-brand" href="index.html" aria-label="Benedetta Petrucci, home del portfolio"><span class="px-brand__mark" aria-hidden="true">bp</span><span class="px-brand__name" aria-hidden="true">Benedetta Petrucci</span></a>
       <nav class="px-nav" aria-label="Navigazione principale"><ul>{''.join(items)}</ul></nav>
+      {lang_switch(name)}
       <button class="px-menu-button" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="site-menu"><i></i><i></i></button>
     </div>
     <nav class="px-panel" id="site-menu" aria-label="Menu" hidden><ul>{''.join(panel)}</ul></nav>
   </header>"""
 
 
-def footer():
+def footer(name):
     return f"""<footer class="px-footer">
     <div class="container-site">
       <div class="px-footer__grid">
@@ -101,6 +129,7 @@ def footer():
             <li><a href="esperienza-federlus.html">Esperienza FederLUS</a></li>
             <li><a href="cv.html">CV</a></li>
             <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="en/{EN_SLUG[name]}" hreflang="en" lang="en" data-lang-switch>English version</a></li>
           </ul>
         </nav>
         <div>
@@ -210,7 +239,7 @@ def head(orig, name, extra_css=()):
     # Two pages carried canonical / og URLs of an older account: point them at the live address.
     h = h.replace("https://benedettapetrucci.github.io/portfolio/", SITE)
     css = "".join(f'  <link rel="stylesheet" href="assets/css/{c}">\n' for c in (*extra_css, "parallax.css"))
-    return f"<head>{h.rstrip()}\n  {FONTS}{css}</head>"
+    return f"<head>{h.rstrip()}\n  {alternates(name)}  {FONTS}{css}</head>"
 
 
 def page(name, current, trail, transform, extra_css=(), scripts=("site.js",), exact=True):
@@ -221,8 +250,8 @@ def page(name, current, trail, transform, extra_css=(), scripts=("site.js",), ex
     main = zoom_images(main)
     main = fix_links(main)
     script_tags = "\n  ".join(f'<script src="assets/js/{s}" defer></script>' for s in scripts)
-    out = (f'<!DOCTYPE html>\n<html lang="it">\n{head(orig, name, extra_css)}\n<body id="top">\n  {header(current, exact)}\n\n  '
-           f'{main}\n\n  {footer()}\n  {script_tags}\n</body>\n</html>\n')
+    out = (f'<!DOCTYPE html>\n<html lang="it">\n{head(orig, name, extra_css)}\n<body id="top">\n  {header(current, exact, name)}\n\n  '
+           f'{main}\n\n  {footer(name)}\n  {script_tags}\n</body>\n</html>\n')
     (ROOT / name).write_text(out)
     return out
 
@@ -460,7 +489,7 @@ def home():
 <meta property="og:image:alt" content="Ritratto di Benedetta Petrucci su fondo scuro">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://petruccibenedetta93-wq.github.io/portfolio/">
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">"""
+""" + alternates("index.html") + """<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">"""
     sections = f"""<main id="contenuto">
   <section class="home-section" id="progetti" aria-labelledby="projects-title">
     <div class="wrap">
@@ -609,7 +638,8 @@ def home():
               .replace("__TITLE__", word("BENEDETTA") + word("PETRUCCI"))
               .replace("__IMG__", "assets/images/benedetta-parallax-16x9.jpg")
               .replace("__SECTIONS__", sections)
-              .replace("__FOOTER__", footer())
+              .replace("__FOOTER__", footer("index.html"))
+              .replace("__LANG__", lang_switch("index.html", "lang", "sr"))
               .replace('<a class="skip" href="#progetti">Vai ai progetti</a>', '<a class="skip" href="#contenuto">Vai al contenuto principale</a>')
               .replace("<body>", '<body id="top">', 1)
               .replace("</body>", '<script src="assets/js/site.js" defer></script>\n</body>'))
