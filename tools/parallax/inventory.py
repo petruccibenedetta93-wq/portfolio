@@ -31,6 +31,37 @@ INTENTIONAL = {
 }
 NAV_LABEL = re.compile(r"^(← )?(Precedente|Prossimo|Tutti i progetti)")
 
+# Cuts and rewrites Benedetta asked for after the redesign (21 Oct 2026): (page, text prefix) -> what replaced it.
+PROFILE = "profilo della home riscritto su richiesta dell'autrice: competenze UX/UI al posto degli ambiti generici"
+EDITED = {
+    ("index.html", "Esperienze digitali chiare, progettate"): "frase d'apertura doppia: resta il titolo “Dal design visivo alla progettazione di esperienze digitali.”",
+    ("index.html", "per le persone."): "seconda riga della stessa frase d'apertura",
+    ("index.html", "Experience Design"): PROFILE,
+    ("index.html", "Creative Direction"): PROFILE,
+    ("index.html", "Una cassetta degli attrezzi davvero trasversale."): PROFILE + " (titolo delle competenze)",
+    ("index.html", "Strategia, coordinamento e produzione"): PROFILE + " (introduzione alle competenze)",
+    ("index.html", "Pianificazione e budget"): "schede Project management ed Eventi unite in “Progetti ed eventi”",
+    ("index.html", "Monitoraggio e rendicontazione"): "schede Project management ed Eventi unite in “Progetti ed eventi”",
+    ("index.html", "Coordinamento operativo"): "schede Project management ed Eventi unite in “Progetti ed eventi”",
+    ("index.html", "Materiali e allestimenti"): "schede Project management ed Eventi unite in “Progetti ed eventi”",
+    ("index.html", "Ricerca e architettura"): "scheda UX/UI riscritta con competenze più precise",
+    ("index.html", "Wireframe e design system"): "scheda UX/UI riscritta con competenze più precise",
+    ("progetto-farmacia-altesi.html", "Il piano è progettato per verificare"): "accorciato: la seconda frase ripeteva la nota di trasparenza sul test ipotetico",
+    ("progetto-jojob.html", "Responsive coerente"): "case study accorciato: la scheda ripeteva l'introduzione della sezione",
+    ("progetto-jojob.html", "La struttura diventa verticale"): "case study accorciato: la scheda ripeteva l'introduzione della sezione",
+    ("progetto-jojob.html", "Flusso completo"): "case study accorciato: la scheda ripeteva la didascalia dell'immagine",
+    ("progetto-jojob.html", "Home, ricerca, filtri, dettaglio"): "case study accorciato: la scheda ripeteva la didascalia dell'immagine",
+    ("progetto-jojob.html", "User Test 1 definisce il protocollo"): "introduzione del test accorciata alla prima frase",
+    ("progetto-jojob.html", "scenari di test"): "riquadro numerico rimosso: partecipanti, scenari e dispositivi sono già descritti nelle due fasi",
+    ("progetto-jojob.html", "4/5"): "riquadro numerico rimosso: partecipanti, scenari e dispositivi sono già descritti nelle due fasi",
+    ("progetto-jojob.html", "smartphone come dispositivo abituale"): "riquadro numerico rimosso: partecipanti, scenari e dispositivi sono già descritti nelle due fasi",
+    ("progetto-jojob.html", "Pianificazione → sessioni"): "citazione di processo rimossa (decorativa)",
+    ("progetto-jojob.html", "Percezione"): "punto rimosso: ripeteva il paragrafo sulle evidenze (facilità e rapidità citate dai partecipanti)",
+    ("progetto-jojob.html", "I cinque contributi descrivono"): "punto rimosso: ripeteva il paragrafo sulle evidenze (facilità e rapidità citate dai partecipanti)",
+    **{("progetto-jojob.html", t): "schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system"
+       for t in ("Colore", "Palette primaria", "Tipografia", "Una gerarchia modulare", "Componenti", "Button, form, card e badge")},
+}
+
 
 class Collector(HTMLParser):
     def __init__(self):
@@ -94,7 +125,7 @@ def main():
     new_flat = {p: flat_text(t) for p, t in new_pages.items()}
     all_flat = " ".join(new_flat.values())
     all_new = " ".join(new_pages.values())
-    rows, problems, moved_all, intentional = [], [], [], []
+    rows, problems, moved_all, intentional, edited = [], [], [], [], []
     for p in PAGES:
         before = collect(main_of(original(p)))
         after = collect(new_pages[p])
@@ -107,6 +138,10 @@ def main():
                 continue
             if NAV_LABEL.match(t):
                 intentional.append((p, t, "vecchio link precedente/successivo: sostituito dalla navigazione “Progetto precedente · Tutti i progetti · Progetto successivo”"))
+                continue
+            reason = next((why for (page, prefix), why in EDITED.items() if page == p and t.startswith(prefix)), None)
+            if reason:
+                edited.append((p, t, reason))
                 continue
             (moved if t in all_flat else missing).append(t)
         assets_b = {s.split("?")[0] for s in before.srcs if s}
@@ -140,10 +175,14 @@ def main():
     out += [f"- `{p}` · {k}: {t}" for p, k, t in problems] or ["Nessuno: ogni testo, immagine, documento, link esterno e ancora delle pagine originali è presente nel nuovo sito."]
     out += ["", "## Sostituzioni intenzionali (etichette di navigazione e decorazioni)", ""]
     out += [f"- `{p}` · “{t}”: {why}" for p, t, why in intentional] or ["Nessuna."]
+    out += ["", "## Tagli e riscritture approvati dall’autrice (21 ottobre 2026)", "",
+            "Dopo la pubblicazione Benedetta ha chiesto di sostituire nel profilo gli ambiti generici con competenze UX/UI, "
+            "tenere una sola frase d’apertura e accorciare i case study principali mantenendo le parti fondamentali.", ""]
+    out += [f"- `{p}` · “{t}”: {why}" for p, t, why in edited] or ["Nessuno."]
     out += ["", "## Testi spostati su un’altra pagina", ""]
     out += [f"- da `{p}`: {t}" for p, t in moved_all] or ["Nessuno."]
     (Path(__file__).parent / "INVENTARIO.md").write_text("\n".join(out) + "\n")
-    print(f"pages {len(rows)}, problems {len(problems)}, moved {len(moved_all)}, intentional {len(intentional)}")
+    print(f"pages {len(rows)}, problems {len(problems)}, moved {len(moved_all)}, intentional {len(intentional)}, edited {len(edited)}")
     for p, k, t in problems:
         print(f"  {p} | {k} | {t[:110]}")
     for p, t in moved_all:

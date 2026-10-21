@@ -4,10 +4,10 @@ Confronto automatico (`tools/parallax/inventory.py`) tra il contenuto di `<main>
 
 | Pagina (URL invariato) | Testi prima | Immagini | Documenti | Link esterni | Ancore | Testi dopo | Testi mancanti | Testi spostati su altra pagina | Asset/link mancanti | Ancore mancanti |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| index.html | 106 | 3 | 0 | 0 | 9 | 151 | 0 | 18 | 0 | 0 |
+| index.html | 106 | 3 | 0 | 0 | 9 | 149 | 0 | 18 | 0 | 0 |
 | progetti.html | 42 | 4 | 0 | 0 | 3 | 71 | 0 | 0 | 0 | 0 |
 | progetto-farmacia-altesi.html | 210 | 0 | 0 | 4 | 17 | 255 | 0 | 0 | 0 | 0 |
-| progetto-jojob.html | 158 | 5 | 7 | 2 | 11 | 212 | 0 | 0 | 0 | 0 |
+| progetto-jojob.html | 158 | 5 | 7 | 2 | 11 | 195 | 0 | 0 | 0 | 0 |
 | progetto-includo.html | 53 | 2 | 1 | 0 | 6 | 99 | 0 | 0 | 0 | 0 |
 | progetto-linkedin-personal-branding.html | 78 | 4 | 1 | 1 | 7 | 125 | 0 | 0 | 0 | 0 |
 | progetto-ai.html | 66 | 1 | 1 | 0 | 6 | 111 | 0 | 0 | 0 | 0 |
@@ -39,6 +39,41 @@ Nessuno: ogni testo, immagine, documento, link esterno e ancora delle pagine ori
 - `progetto-ai.html` · “← Precedente: INCLUDO”: vecchio link precedente/successivo: sostituito dalla navigazione “Progetto precedente · Tutti i progetti · Progetto successivo”
 - `progetto-ai.html` · “Tutti i progetti →”: vecchio link precedente/successivo: sostituito dalla navigazione “Progetto precedente · Tutti i progetti · Progetto successivo”
 
+## Tagli e riscritture approvati dall’autrice (21 ottobre 2026)
+
+Dopo la pubblicazione Benedetta ha chiesto di sostituire nel profilo gli ambiti generici con competenze UX/UI, tenere una sola frase d’apertura e accorciare i case study principali mantenendo le parti fondamentali.
+
+- `index.html` · “Esperienze digitali chiare, progettate”: frase d'apertura doppia: resta il titolo “Dal design visivo alla progettazione di esperienze digitali.”
+- `index.html` · “per le persone.”: seconda riga della stessa frase d'apertura
+- `index.html` · “Experience Design”: profilo della home riscritto su richiesta dell'autrice: competenze UX/UI al posto degli ambiti generici
+- `index.html` · “Creative Direction”: profilo della home riscritto su richiesta dell'autrice: competenze UX/UI al posto degli ambiti generici
+- `index.html` · “Una cassetta degli attrezzi davvero trasversale.”: profilo della home riscritto su richiesta dell'autrice: competenze UX/UI al posto degli ambiti generici (titolo delle competenze)
+- `index.html` · “Strategia, coordinamento e produzione: competenze diverse che lavorano insieme per portare ogni progetto dall’idea al risultato.”: profilo della home riscritto su richiesta dell'autrice: competenze UX/UI al posto degli ambiti generici (introduzione alle competenze)
+- `index.html` · “Pianificazione e budget”: schede Project management ed Eventi unite in “Progetti ed eventi”
+- `index.html` · “Monitoraggio e rendicontazione”: schede Project management ed Eventi unite in “Progetti ed eventi”
+- `index.html` · “Coordinamento operativo”: schede Project management ed Eventi unite in “Progetti ed eventi”
+- `index.html` · “Materiali e allestimenti”: schede Project management ed Eventi unite in “Progetti ed eventi”
+- `index.html` · “Ricerca e architettura”: scheda UX/UI riscritta con competenze più precise
+- `index.html` · “Wireframe e design system”: scheda UX/UI riscritta con competenze più precise
+- `progetto-farmacia-altesi.html` · “Il piano è progettato per verificare comprensione, autonomia e fiducia su ricetta, servizi, shop, eventi e Altea. Non presento completion rate, tempi o punteggi come misurati: gli interventi mostrati derivano da progettazione e QA.”: accorciato: la seconda frase ripeteva la nota di trasparenza sul test ipotetico
+- `progetto-jojob.html` · “Colore”: schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system
+- `progetto-jojob.html` · “Palette primaria, neutri e colori semantici per feedback immediati.”: schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system
+- `progetto-jojob.html` · “Tipografia”: schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system
+- `progetto-jojob.html` · “Una gerarchia modulare per contenuti scansionabili su ogni device.”: schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system
+- `progetto-jojob.html` · “Componenti”: schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system
+- `progetto-jojob.html` · “Button, form, card e badge progettati con varianti e stati coerenti.”: schede Colore, Tipografia e Componenti rimosse: ripetevano il paragrafo sul design system
+- `progetto-jojob.html` · “Responsive coerente”: case study accorciato: la scheda ripeteva l'introduzione della sezione
+- `progetto-jojob.html` · “La struttura diventa verticale senza eliminare informazioni o funzionalità.”: case study accorciato: la scheda ripeteva l'introduzione della sezione
+- `progetto-jojob.html` · “Flusso completo”: case study accorciato: la scheda ripeteva la didascalia dell'immagine
+- `progetto-jojob.html` · “Home, ricerca, filtri, dettaglio, conferma, offerta del passaggio e dashboard.”: case study accorciato: la scheda ripeteva la didascalia dell'immagine
+- `progetto-jojob.html` · “User Test 1 definisce il protocollo; User Test 2 documenta le sessioni e trasforma ciò che è emerso in ipotesi da verificare. Le due consegne diventano così un unico percorso, senza confondere obiettivi, risultati e decisioni progettuali.”: introduzione del test accorciata alla prima frase
+- `progetto-jojob.html` · “scenari di test”: riquadro numerico rimosso: partecipanti, scenari e dispositivi sono già descritti nelle due fasi
+- `progetto-jojob.html` · “4/5”: riquadro numerico rimosso: partecipanti, scenari e dispositivi sono già descritti nelle due fasi
+- `progetto-jojob.html` · “smartphone come dispositivo abituale”: riquadro numerico rimosso: partecipanti, scenari e dispositivi sono già descritti nelle due fasi
+- `progetto-jojob.html` · “Pianificazione → sessioni → evidenze → ipotesi di modifica → retest.”: citazione di processo rimossa (decorativa)
+- `progetto-jojob.html` · “Percezione”: punto rimosso: ripeteva il paragrafo sulle evidenze (facilità e rapidità citate dai partecipanti)
+- `progetto-jojob.html` · “I cinque contributi descrivono un’esperienza complessivamente positiva e un’interfaccia intuitiva.”: punto rimosso: ripeteva il paragrafo sulle evidenze (facilità e rapidità citate dai partecipanti)
+
 ## Testi spostati su un’altra pagina
 
 - da `index.html`: UX Research
@@ -58,4 +93,4 @@ Nessuno: ogni testo, immagine, documento, link esterno e ancora delle pagine ori
 - da `index.html`: Content Strategy
 - da `index.html`: LinkedIn Personal Branding — Strategia e KPI
 - da `index.html`: Metodo
-- da `index.html`: Competenze
+- da `index.html`: Ideazione e organizzazione

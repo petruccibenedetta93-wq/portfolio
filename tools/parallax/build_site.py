@@ -258,25 +258,25 @@ PROTO_ALTESI_M = "https://www.figma.com/proto/Zacs8qK50wRRVo4hlJXGjB?node-id=142
 
 SUMMARIES = {
     "progetto-jojob.html": summary([
-        ("Tipo di progetto", "Project work formativo di UX/UI design (2026); la parte di UI mobile è stata valutata con il massimo risultato nel modulo User Interface 2."),
-        ("Problema", "JOJOB facilita la condivisione dei tragitti casa-lavoro, ma percorsi poco chiari, processi percepiti come lunghi e pochi segnali di sicurezza frenano l’adozione."),
-        ("Utenti e obiettivo", "Pendolari casa-lavoro, sintetizzati in tre personas. Obiettivo: rendere la mobilità condivisa semplice da capire e abbastanza affidabile da provare."),
-        ("Il mio ruolo e contributo", "UX/UI Designer: Discovery (5 micro-interviste, questionario con 40 risposte, empathy map, personas), architettura informativa, wireframe desktop e mobile, UI e design system, UI mobile, piano e sessioni di user testing."),
-        ("Scelte progettuali e motivazioni", "Architettura costruita intorno ai due task principali (cercare e offrire un passaggio); sicurezza, community e vantaggi resi visibili prima; prenotazione in cinque passaggi con feedback; target touch di 44 px e componenti riutilizzabili."),
-        ("Output", "Wireframe desktop e mobile, UI ad alta fedeltà desktop e mobile, prototipo Figma, documentazione di User Test 1 (protocollo) e User Test 2 (sessioni e analisi)."),
-        ("Risultati documentati e limiti", "Test moderato con 5 partecipanti: 3 citano facilità o intuitività, 2 la rapidità; emergono 2 punti da approfondire (ritorno dalla dashboard alla Home, visibilità della conferma). Le modifiche proposte sono ipotesi da verificare in un retest; la copertura dei task non è uniforme, quindi non è calcolato un tasso di successo complessivo.", True),
+        ("Tipo di progetto", "Project work formativo di UX/UI design (2026). La UI mobile ha ottenuto il massimo risultato nel modulo User Interface 2."),
+        ("Problema", "Percorsi poco chiari, processi percepiti come lunghi e pochi segnali di sicurezza frenano l’adozione del carpooling casa-lavoro."),
+        ("Utenti e obiettivo", "Pendolari casa-lavoro (tre personas). Obiettivo: una mobilità condivisa semplice da capire e abbastanza affidabile da provare."),
+        ("Il mio ruolo e contributo", "UX/UI Designer: Discovery (5 micro-interviste, questionario con 40 risposte, personas), architettura informativa, wireframe, UI e design system desktop e mobile, user testing."),
+        ("Scelte progettuali e motivazioni", "Architettura costruita sui due task principali (cercare e offrire un passaggio); sicurezza e community visibili da subito; prenotazione in cinque passaggi con feedback; target touch di 44 px."),
+        ("Output", "Wireframe e UI desktop e mobile, prototipo Figma, protocollo e analisi di due user test."),
+        ("Risultati documentati e limiti", "Test moderato con 5 partecipanti: 3 citano facilità o intuitività, 2 la rapidità; due punti da approfondire (ritorno alla Home, visibilità della conferma). Le modifiche proposte vanno verificate in un retest; non è calcolato un tasso di successo complessivo.", True),
     ], [fig(FIGMA_JOJOB, "File Figma"), fig(PROTO_JOJOB, "Prototipo mobile"), pdf("assets/docs/jojob-discovery.pdf", "Discovery"),
         pdf("assets/docs/jojob-wireframing-desktop.pdf", "Wireframe desktop"), pdf("assets/docs/jojob-wireframing-mobile.pdf", "Wireframe mobile"),
         pdf("assets/docs/jojob-ui.pdf", "UI desktop"), pdf("assets/docs/jojob-user-interface-mobile.pdf", "UI mobile"),
         pdf("assets/docs/jojob-user-test-1.pdf", "User Test 1"), pdf("assets/docs/jojob-user-test-2.pdf", "User Test 2")]),
     "progetto-farmacia-altesi.html": summary([
         ("Tipo di progetto", "Progetto finale del Master UX/UI Design di start2impact (formativo), 2026."),
-        ("Problema", "Il sito di partenza distribuiva prenotazioni, contatti e richieste su canali distinti: mancava continuità tra ciò che una persona inizia online e ciò che deve verificare il farmacista."),
-        ("Utenti e obiettivo", "Clienti abituali e occasionali di una farmacia di prossimità. Obiettivo: rendere semplice un’azione pratica online mantenendo chiari responsabilità, limiti e intervento professionale."),
-        ("Il mio ruolo e contributo", "UX/UI &amp; Visual Designer, dalla ricerca ai prototipi: logo e identità, audit, benchmark, survey, journey, architettura, wireframe responsive, UI, prototipi, conversational UX di Altea e piano di test."),
-        ("Scelte progettuali e motivazioni", "Stati espliciti (ricevuta, in verifica, confermata) per non confondere una richiesta con una conferma; ricetta in tre passaggi con verifica del farmacista; Altea facoltativa e con passaggio evidente a una persona, perché 11 persone su 13 vogliono il farmacista per domande personali sui farmaci; target di 44–48 px e contrasti verificati in fase di design."),
-        ("Output", "10 schermate (5 desktop e 5 mobile), 2 prototipi Figma collegati, file Figma con componenti, demo interattiva rule-based di Altea in questa pagina."),
-        ("Risultati documentati e limiti", "Survey esplorativa reale con 13 risposte (campione piccolo e non rappresentativo). Il test di usabilità descritto è ipotetico e non è stato svolto: i relativi risultati sono simulati. Non sono presentate metriche di efficacia; Altea è un concept, non un agente clinico validato.", True),
+        ("Problema", "Prenotazioni, contatti e richieste erano su canali distinti: mancava continuità tra ciò che una persona inizia online e ciò che il farmacista deve verificare."),
+        ("Utenti e obiettivo", "Clienti abituali e occasionali di una farmacia di prossimità. Obiettivo: azioni online semplici, con responsabilità e intervento del farmacista sempre chiari."),
+        ("Il mio ruolo e contributo", "UX/UI &amp; Visual Designer, dalla ricerca ai prototipi: identità, audit, benchmark, survey, architettura, wireframe, UI responsive, prototipi, conversational UX di Altea e piano di test."),
+        ("Scelte progettuali e motivazioni", "Stati espliciti (ricevuta, in verifica, confermata) per non scambiare una richiesta per una conferma; ricetta in tre passaggi con verifica del farmacista; Altea facoltativa e con passaggio evidente a una persona, perché 11 rispondenti su 13 vogliono il farmacista per domande personali; target di 44–48 px."),
+        ("Output", "10 schermate (5 desktop e 5 mobile), 2 prototipi Figma collegati e la demo interattiva di Altea in questa pagina."),
+        ("Risultati documentati e limiti", "Survey reale con 13 risposte (campione piccolo, non rappresentativo). Il test di usabilità è ipotetico e non è stato svolto: i suoi risultati sono simulati. Altea è un concept, non un agente clinico validato.", True),
     ], [fig(FIGMA_ALTESI, "File Figma"), fig(PROTO_ALTESI_D, "Prototipo desktop"), fig(PROTO_ALTESI_M, "Prototipo mobile"),
         fig(SURVEY_ALTESI, "Risultati della survey in Figma"),
         '<a class="pill pill--dark" href="#altea">Demo di Altea in questa pagina <span aria-hidden="true">↓</span></a>']),
@@ -322,12 +322,36 @@ def case_study(name, title_crumb, extra_css=(), scripts=("site.js",), extra=None
     page(name, "progetti", [("Home", "index.html"), ("Progetti", "progetti.html"), (title_crumb, None)], transform, extra_css, scripts, exact=False)
 
 
+def edit(main, pairs):
+    """Apply editorial cuts approved by Benedetta (21 Oct 2026); each pattern must match exactly once."""
+    for pattern, new in pairs:
+        main, count = re.subn(pattern, new, main, flags=re.S)
+        assert count == 1, (pattern, count)
+    return main
+
+
 def altesi_extra(main):
     old = "<p>Il piano è progettato per verificare comprensione, autonomia e fiducia su ricetta, servizi, shop, eventi e Altea. Non presento completion rate, tempi o punteggi come misurati: gli interventi mostrati derivano da progettazione e QA.</p>"
     assert old in main
     note = ('<p class="note"><strong>Trasparenza:</strong> il test di usabilità descritto è ipotetico e non è stato svolto; '
             'i relativi risultati sono simulati e non vanno letti come evidenze. L’unica ricerca svolta con persone reali è la survey con 13 risposte.</p>')
-    return main.replace(old, old + "\n            " + note, 1)
+    short = "<p>Il piano è progettato per verificare comprensione, autonomia e fiducia su ricetta, servizi, shop, eventi e Altea.</p>"
+    return main.replace(old, short + "\n            " + note, 1)
+
+
+def jojob_extra(main):
+    return edit(main, [
+        # Testing: shorter lead; the stats strip, the process quote and the "Percezione" item repeat nearby text.
+        (r"(User Test 2 documenta le sessioni e trasforma ciò che è emerso in ipotesi da verificare\.) Le due consegne diventano così un unico percorso[^<]*", r"\1"),
+        (r'\s*<div class="stats"><div class="stats__item"><strong>5</strong><span>partecipanti</span>.*?</div></div>', ""),
+        (r'\s*<div class="quote-block">Pianificazione → sessioni → evidenze → ipotesi di modifica → retest\.</div>', ""),
+        (r"<li><strong>Percezione</strong>.*?</li>", ""),
+        # Mobile UI: the lead and the figure already say what these two cards repeat.
+        (r"<article><h3>Responsive coerente</h3>.*?</article>", ""),
+        (r"<article><h3>Flusso completo</h3>.*?</article>", ""),
+        # UI design: the three cards restate the paragraph above them.
+        (r'\s*<div class="[^"]*"><article class="skill-card"><h3>Colore</h3>.*?<h3>Componenti</h3>.*?</article></div>', ""),
+    ])
 
 
 # ---------------------------------------------------------------- other pages
@@ -485,7 +509,7 @@ def home():
     <div class="wrap">
       <p class="kicker">Profilo · UX/UI Design · Visual Design · Ricerca utenti</p>
       <h2 id="about-title">Dal design visivo alla progettazione di esperienze digitali.</h2>
-      <p class="lead">Esperienze digitali chiare, progettate per le persone. Ciao, sono Benedetta. Progetto interfacce e sistemi visivi partendo da bisogni, evidenze e test. Dal 2020 lavoro nella comunicazione digitale e nel coordinamento di progetti per FederLUS; oggi applico questo bagaglio ai progetti UX/UI.</p>
+      <p class="lead">Ciao, sono Benedetta. Progetto interfacce e sistemi visivi partendo da bisogni, evidenze e test. Dal 2020 lavoro nella comunicazione digitale e nel coordinamento di progetti per FederLUS; oggi applico questo bagaglio ai progetti UX/UI.</p>
       <p class="lead">In FederLUS progetto contenuti e identità digitali, dialogo con stakeholder e accompagno il lavoro fino alla consegna. Ho concluso il percorso del Master UX/UI Design di start2impact, approfondendo ricerca, architettura, prototipazione e verifica con utenti: JOJOB, Farmacia Altesi e il progetto LinkedIn Personal Branding mostrano come collego metodo, interfacce e comunicazione.</p>
       <dl class="facts">
         <div class="fact"><dt>Ruolo che cerco</dt><dd>Ruoli UX/UI, UI e visual design: da remoto in Italia o ibridi a Roma.</dd></div>
@@ -494,10 +518,10 @@ def home():
       </dl>
       <div class="stats">
         <div class="stats__item"><strong>6+</strong><span>anni di esperienza professionale</span></div>
-        <div class="stats__item"><strong>30+</strong><span>progetti sviluppati</span></div>
-        <div class="stats__item"><strong>13</strong><span>BCC supportate</span></div>
+        <div class="stats__item"><strong>30+</strong><span>progetti sviluppati in FederLUS</span></div>
+        <div class="stats__item"><strong>13</strong><span>BCC supportate in FederLUS</span></div>
       </div>
-      <ul class="keywords" aria-label="Ambiti"><li>Communication</li><li>Experience Design</li><li>Project Management</li><li>Creative Direction</li></ul>
+      <ul class="keywords" aria-label="Competenze UX/UI"><li>Ricerca utenti</li><li>Architettura dell’informazione</li><li>Prototipazione in Figma</li><li>Design system</li><li>Accessibilità</li></ul>
 
       <h3 id="process-title" style="margin-top:72px">Dal bisogno alla soluzione.</h3>
       <p class="lead">Un processo iterativo che mantiene le persone al centro e rende ogni scelta progettuale motivata.</p>
@@ -508,14 +532,13 @@ def home():
         <article class="process-card"><span class="process-card__number">04</span><h3>Verificare</h3><p>Prototipo, testo e miglioro la soluzione nel tempo.</p></article>
       </div>
 
-      <h3 id="skills-title" style="margin-top:72px">Una cassetta degli attrezzi davvero trasversale.</h3>
-      <p class="lead">Strategia, coordinamento e produzione: competenze diverse che lavorano insieme per portare ogni progetto dall’idea al risultato.</p>
+      <h3 id="skills-title" style="margin-top:72px">Competenze UX/UI, con una base solida in comunicazione.</h3>
+      <p class="lead">Il centro è la progettazione UX/UI. Comunicazione, gestione di progetti ed eventi sono l’esperienza professionale che porto in ogni progetto.</p>
       <div class="skills-grid">
-        <article class="skill-card"><h3>UX/UI</h3><ul><li>Ricerca e architettura</li><li>Wireframe e design system</li><li>Prototipi responsive</li></ul></article>
+        <article class="skill-card"><h3>UX/UI</h3><ul><li>Ricerca utenti e test di usabilità</li><li>Architettura dell’informazione</li><li>Wireframe e prototipi responsive in Figma</li><li>Design system e accessibilità</li></ul></article>
         <article class="skill-card"><h3>Visual &amp; digital</h3><ul><li>Brand e graphic design</li><li>WordPress, HTML e CSS</li><li>Video e contenuti multimediali</li></ul></article>
         <article class="skill-card"><h3>Comunicazione</h3><ul><li>Comunicazione istituzionale</li><li>Campagne e contenuti</li><li>Articoli, presentazioni e social</li></ul></article>
-        <article class="skill-card"><h3>Project management</h3><ul><li>Pianificazione e budget</li><li>Stakeholder e fornitori</li><li>Monitoraggio e rendicontazione</li></ul></article>
-        <article class="skill-card"><h3>Eventi</h3><ul><li>Ideazione e organizzazione</li><li>Coordinamento operativo</li><li>Materiali e allestimenti</li></ul></article>
+        <article class="skill-card"><h3>Progetti ed eventi</h3><ul><li>Pianificazione, budget e rendicontazione</li><li>Stakeholder e fornitori</li><li>Ideazione e coordinamento di eventi</li></ul></article>
         <article class="skill-card"><h3>AI &amp; automazione</h3><ul><li>Agenti AI con n8n</li><li>Prompt design</li><li>Workflow automation</li></ul></article>
       </div>
       <div class="links">
@@ -599,7 +622,7 @@ def home():
 def main():
     home()
     page("progetti.html", "progetti", [("Home", "index.html"), ("Progetti", None)], progetti_transform, ("altesi.css",))
-    case_study("progetto-jojob.html", "JOJOB")
+    case_study("progetto-jojob.html", "JOJOB", extra=jojob_extra)
     case_study("progetto-farmacia-altesi.html", "Farmacia Altesi + Altea", ("altesi.css",), ("site.js", "altea-demo.js"), altesi_extra)
     case_study("progetto-linkedin-personal-branding.html", "LinkedIn Personal Branding")
     case_study("progetto-includo.html", "INCLUDO")
