@@ -19,10 +19,12 @@ Saldo Higgsfield letto dall'account: **10 crediti**, piano free. Costi restituit
 | Minimax Hailuo 2.3 | 6 s, 1080p | 10 |
 | Seedance 2.5 | 5 s, 720p | 35 (oltre il saldo) |
 
-Limiti di cosa è verificato:
+**Ricontrollo con immagine allegata (21 ottobre 2026)**: Kling 3.0 pro, 5 s, 16:9, audio spento, stessa immagine come `start_image` e `end_image`, 1 clip → **8,75 crediti**, invariato. Saldo dopo il controllo: 10 crediti (nessun job avviato, nessun credito speso).
 
-- La stima è stata chiesta **senza caricare la foto** (caricare è già una scrittura sull'account). Il prezzo potrebbe variare con l'immagine allegata: va riconfermato con `get_cost` dopo il caricamento e prima della generazione.
-- Il catalogo non dichiara la risoluzione in pixel di Kling std/pro.
+- Immagine usata per il ricontrollo: la foto originale `benedetta-cutout-hq.png`, importata in Higgsfield dal sito pubblico del portfolio (media id `cdb42b7f-ca66-4403-869d-d9de673f77a0`). Il fotogramma `start-frame-16x9.png` **non è stato caricato**: la rete di questo ambiente rifiuta la connessione verso `upload.higgsfield.ai`. Va caricato da un ambiente con accesso a quel dominio (o dal sito Higgsfield) prima della generazione, e il costo va riconfermato con quell'immagine.
+- Risoluzione: il catalogo Higgsfield non espone la risoluzione in pixel delle modalità std e pro di Kling 3.0 (solo la modalità `4k` la dichiara nel nome). Dato non verificato.
+
+**Limite proposto per l'approvazione: 1 clip, massimo 8,75 crediti.** Nessun avvio prima dell'approvazione; se il costo confermato supera il limite o il saldo, nessun acquisto: ci si ferma e si riporta il nuovo valore.
 - Con 10 crediti c'è margine per **un solo tentativo**: se la clip non convince (somiglianza, raccordo), un secondo tentativo richiede altri crediti.
 
 Raccomandazione: Kling 3.0 pro, 5 s, 16:9, audio spento, con lo stesso fotogramma come immagine iniziale e finale per favorire il loop. Alternativa economica: Minimax Hailuo 2.3, 6 s, 768p (6 crediti), meno nitida.
