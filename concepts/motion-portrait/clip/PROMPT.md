@@ -2,6 +2,30 @@
 
 Stato: **preparata, non generata**. L'idea della clip è approvata; l'importo in crediti va ancora approvato da Benedetta.
 
+## Piano eseguibile scelto (21 ottobre 2026)
+
+Si usa la **foto originale già importata in Higgsfield** come immagine iniziale e finale. Il fotogramma 16:9 (`start-frame-16x9.png`) resta solo un riferimento estetico: non serve caricarlo e non va cambiata nessuna impostazione di rete o di permessi.
+
+| Voce | Valore |
+| --- | --- |
+| Immagine (start e end) | `benedetta-cutout-hq.png`, importata da `https://petruccibenedetta93-wq.github.io/portfolio/assets/images/benedetta-cutout-hq.png` |
+| Media id Higgsfield | `cdb42b7f-ca66-4403-869d-d9de673f77a0` (ruoli `start_image` e `end_image`) |
+| Modello | `kling3_0`, `mode: pro` |
+| Durata / formato / audio | 5 s, `aspect_ratio: 16:9`, `sound: off`, `count: 1` |
+| Costo verificato con questa immagine | **8,75 crediti** (saldo 10) |
+| Limite da far approvare a Benedetta | **1 clip, massimo 8,75 crediti**. Nessun avvio prima dell'approvazione, nessun acquisto se il costo cambia o il saldo non basta |
+| Prompt | la versione "per la foto originale" più sotto |
+
+La foto è un ritaglio con sfondo trasparente in formato 3:4: in 16:9 il modello completerà lo sfondo e probabilmente terrà il soggetto al centro. Per questo la posizione a destra non si chiede alla clip ma si ottiene nel sito (vedi "Integrazione").
+
+### Prompt per la foto originale
+
+```
+Static portrait of the same woman from the start image, keeping her exact face, features, hairstyle, black turtleneck and black blazer unchanged. Plain dark grey-blue studio backdrop, softly lit behind her, no objects. Minimal, natural motion only: a slow, subtle shift of gaze, a very slight head movement of a few degrees, one natural blink, a faint movement in the ends of her hair as if from soft air. Calm, neutral expression, mouth closed. Locked-off camera, no zoom, no pan, no camera shake. Even studio light that does not change. Head-and-torso framing stays the same for the whole clip. The clip ends in the same pose as it starts, for a seamless loop.
+```
+
+Da evitare: lo stesso elenco della sezione "Prompt" qui sotto.
+
 ## Fotogramma di partenza
 
 `start-frame-16x9.png` (1920×1080). È la foto originale `assets/images/benedetta-cutout-hq.png`, ridimensionata senza ritocchi e posata su un fondale da studio scuro con i colori della variante B. Il soggetto occupa l'80% dell'altezza, a destra; i capelli iniziano al 61% della larghezza, quindi il 60% sinistro resta libero per l'interfaccia. Nessuna parte del volto o del corpo è stata generata o modificata.
@@ -50,6 +74,7 @@ text, captions, logos, watermark, talking, lip movement, smiling, facial transfo
 
 ## Integrazione prevista nella variante B
 
-- Da 1024 px in su la clip diventa il fondale dell'hero (`object-fit: cover`, ancorata a destra), con la foto come `poster` durante il caricamento.
-- Sotto i 1024 px resta la foto statica nel blocco ritratto separato dai testi.
-- Con `prefers-reduced-motion: reduce` resta la foto statica (già gestito da `src/shared/PortraitMedia.tsx`).
+- Da 1024 px in su la clip va **solo nel riquadro ritratto della colonna destra** (lo stesso contenitore che oggi ospita la foto), mai a tutta pagina: il contenitore resta separato dalla colonna dei testi, con ritaglio (`overflow: hidden` e la stessa maschera sfumata in basso) e `object-fit` / `object-position` decisi dopo aver visto la clip, in modo che volto e capelli non coprano mai titolo, descrizione e pulsanti.
+- La foto originale resta `poster` durante il caricamento e immagine di ripiego.
+- Sotto i 1024 px e con `prefers-reduced-motion: reduce` resta la foto statica (già gestito da `src/shared/PortraitMedia.tsx`).
+- Dopo l'inserimento: ricontrollare a 1440×900, 1383×695, 1062×590 e 1024×768 che non ci siano sovrapposizioni.
