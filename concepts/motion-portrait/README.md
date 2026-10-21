@@ -1,3 +1,7 @@
+# Archivio: prove della hero con ritratto
+
+> **Archivio.** PARALLAX è la direzione definitiva ed è applicata alle vere pagine del sito (vedi il README principale e `tools/parallax/`). Questa cartella conserva le prove precedenti (varianti A e B, prima bozza PARALLAX, proposta video) fuori dalla navigazione del portfolio: non vanno più sviluppate.
+
 # Bozza: hero con ritratto (PARALLAX corrente, B e A di confronto)
 
 Proposta visiva **isolata e non pubblicata** per la home del portfolio. Non sostituisce `index.html` e non modifica il resto del sito: tutto vive in questa cartella.
