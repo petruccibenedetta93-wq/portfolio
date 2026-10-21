@@ -16,11 +16,22 @@ Benedetta chiede una scena simile con il suo volto, realistica e non troppo arti
 | --- | --- |
 | File | `WhatsApp Video 2026-10-21 at 12.32.28.mp4` |
 | Dove si trova | conservato da Benedetta; i riferimenti di accesso sono in una nota privata fuori dal repository |
-| Dati tecnici (rilevati da chi l'ha caricato) | 10,67 s, 30 fps, codificato 1024×576 con rotazione: in visione corretta è verticale 576×1024; contiene audio |
-| Contenuto (fotogramma a 1 s) | Benedetta, capelli lunghi mossi con riga centrale, maglione blu scuro, interno chiaro |
-| Stato | **non scaricato in questo progetto**: la rete di questo ambiente rifiuta la connessione al servizio di condivisione dove si trova (nessun tentativo di aggirare il blocco). Il video non è stato analizzato: le uniche informazioni sono quelle fornite da chi l'ha caricato. Benedetta può allegarlo direttamente alla sessione; l'originale è disponibile anche nella sua chat ChatGPT |
+| Dati tecnici (verificati con ffprobe) | 10,67 s, 30 fps, 320 fotogrammi, H.264 1024×576 con rotazione di 90°: in visione corretta è verticale 576×1024; audio AAC stereo quasi muto (media −55,5 dB, picco −38,7 dB), da rimuovere comunque |
+| Contenuto | selfie a braccio teso in un ufficio: Benedetta con capelli lunghi mossi e riga centrale, maglione blu scuro; pareti chiare, una giacca verde appesa sullo sfondo, luce interna dall'alto |
+| Stato | **ricevuto il 21 ottobre come allegato alla sessione** e conservato in una cartella privata fuori dal repository; analizzato in locale (metadati e fotogrammi), senza caricarlo su servizi esterni |
 
 Regole: è materiale personale, non va pubblicato né messo nel repository del sito (che è pubblico); l'audio va rimosso in ogni derivato; nessun link di condivisione del video va inserito nelle pagine o nel repository. Non sostituisce la foto dell'hero PARALLAX.
+
+## Analisi del girato (fotogrammi a 1,5 al secondo)
+
+- **0–4,5 s**: mezzo busto quasi frontale, piccole rotazioni della testa verso destra e sinistra e sguardi di tre quarti. È il tratto più adatto alla clip: movimento naturale e contenuto.
+- **4,5–6 s**: la camera si avvicina; inquadratura più stretta sul viso.
+- **6–9,5 s**: primo piano frontale, sguardo in camera, testa quasi ferma; buono per un fotogramma finale o un poster alternativo.
+- **ultimo secondo circa**: la camera si abbassa, immagine mossa e soffitto in vista; da scartare.
+- Camera a mano (selfie): leggero tremolio e variazioni di distanza; servono stabilizzazione e un ritaglio un po' più stretto.
+- Il braccio che regge il telefono entra a tratti nel bordo sinistro; lo sfondo (pareti, giacca appesa) va sostituito con lo scontorno.
+- Capelli mossi e voluminosi: è la parte più difficile da scontornare in modo pulito.
+- Abbigliamento diverso dalla foto della hero (maglione blu invece di dolcevita e blazer neri): la clip non va affiancata alla foto come se fossero lo stesso momento.
 
 ## Trattamento proposto a partire dal video reale
 
@@ -33,11 +44,11 @@ Due strade, in ordine di fedeltà al volto:
 
 In entrambi i casi Claude può preparare direzione, riferimenti, prompt e storyboard, controllare i fotogrammi e integrare la clip nel sito; editing, compositing o generazione richiedono uno strumento esterno, e i costi vanno approvati a parte. **Nessuna identità perfetta è garantita** con la strada 2; nemmeno la strada 1 garantisce un risultato "come il riferimento", che è una scena interamente generata.
 
-### Storyboard sul girato (da verificare dopo aver visto tutto il video)
+### Storyboard sul girato (basato sull'analisi dei fotogrammi)
 
 1. 0–2 s: mezzo busto, Benedetta di tre quarti; fondo azzurro-grigio con vignettatura; cuffie con un bordo luminoso freddo.
-2. 2–5 s: si gira verso la camera seguendo il movimento reale del video; riflessi freddi sul viso dalla fonte luminosa delle cuffie.
-3. 5–7 s: sguardo in camera, piccolo respiro; la giacca trasparente riflette la luce.
+2. 2–5 s: segue le piccole rotazioni reali della testa (tratto 0–4,5 s del girato, stabilizzato); riflessi freddi sul viso dalla fonte luminosa delle cuffie.
+3. 5–7 s: sguardo in camera (tratto 6–9,5 s del girato, raccordato con una dissolvenza perché la camera nel frattempo si avvicina); la giacca trasparente riflette la luce.
 4. Chiusura: dissolvenza o ritorno vicino alla posa iniziale per un loop accettabile (un loop perfetto da un girato reale non è garantito).
 
 Formato di consegna per il sito: verticale 9:16 per mobile e una versione ritagliata per il riquadro destro su desktop; MP4 H.264 + WebM, senza audio, sotto 3 MB; foto come poster e ripiego; nessun elemento sopra testi e pulsanti.
@@ -49,7 +60,7 @@ Formato di consegna per il sito: verticale 9:16 per mobile e una versione ritagl
 
 ## Cosa serve per un risultato credibile
 
-- **Materiale migliore**: un breve video autentico di Benedetta (fornito il 21 ottobre, vedi sopra). Partire dal girato reale preserva molto meglio il volto.
+- **Materiale migliore**: un breve video autentico di Benedetta (fornito il 21 ottobre, vedi sopra). Partire dal girato reale preserva molto meglio il volto. Per una resa più pulita sarebbe utile anche una seconda ripresa con il telefono appoggiato (non a mano), fondo neutro e luce frontale morbida.
 - **Con una sola foto**: si può tentare, ma l'identità non è garantita; lineamenti, proporzioni e capelli possono cambiare tra un fotogramma e l'altro.
 - **Costi**: dipendono dal servizio e dal piano. Il tentativo con Higgsfield (Kling 3.0 pro) è stato rifiutato perché richiede un piano Plus o superiore; la clip Firefly generata in precedenza è stata scartata da Benedetta e non va usata. Nessun nuovo costo è autorizzato.
 - Nessun risultato fotorealistico può essere promesso in anticipo, né un uso gratuito illimitato.
