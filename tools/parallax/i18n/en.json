@@ -4628,5 +4628,16 @@
   "page": "contatti.html",
   "it": "Hai un’opportunità, una collaborazione o un progetto? Parliamone.",
   "en": "Do you have an opportunity, a collaboration or a project? Let’s talk."
+ },
+ "cv2026f1": {
+  "page": "site-footer",
+  "it": "Benedetta Petrucci · Graphic &amp; Web Designer · UX/UI · Junior Project Manager · Roma",
+  "en": "Benedetta Petrucci · Graphic &amp; Web Designer · UX/UI · Junior Project Manager · Rome"
+ },
+ "cv2026f2": {
+  "page": "site-footer",
+  "it": "Portfolio, CV e profili",
+  "en": "Portfolio, CV and profiles"
  }
 }
+

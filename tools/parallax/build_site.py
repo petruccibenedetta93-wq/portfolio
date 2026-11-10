@@ -21,8 +21,9 @@ ORIGIN = "fe39fa7"  # last commit of main before the redesign
 
 LINKEDIN = "https://www.linkedin.com/in/benedetta-petrucci-5b333b328/"
 EMAIL = "petruccibenedetta93@gmail.com"
-CV_IT = "assets/pdf/Benedetta_Petrucci_CV_UX_UI_IT_2026.pdf"
-CV_EN = "assets/pdf/Benedetta_Petrucci_CV_UX_UI_EN_2026.pdf"
+CV_IT = "assets/pdf/Benedetta_Petrucci_CV_Graphic_Web_UX_IT_2026.pdf"
+CV_EN = "assets/pdf/Benedetta_Petrucci_CV_Graphic_Web_UX_EN_2026.pdf"
+PORTFOLIO_PDF = "assets/pdf/Benedetta_Petrucci_Portfolio_2026.pdf"
 SITE = "https://petruccibenedetta93-wq.github.io/portfolio/"
 NEW_TAB = '<span class="sr-only"> (si apre in una nuova scheda)</span>'
 
@@ -118,7 +119,7 @@ def footer(name):
       <div class="px-footer__grid">
         <div>
           <a class="px-footer__brand" href="index.html" aria-label="Benedetta Petrucci, home del portfolio">bp</a>
-          <p>Benedetta Petrucci · UX/UI e visual designer · Roma</p>
+          <p>Benedetta Petrucci · Graphic &amp; Web Designer · UX/UI · Junior Project Manager · Roma</p>
           <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
         </div>
         <nav aria-label="Pagine del portfolio">
@@ -133,8 +134,9 @@ def footer(name):
           </ul>
         </nav>
         <div>
-          <h2>CV e profili</h2>
+          <h2>Portfolio, CV e profili</h2>
           <ul>
+            <li><a href="{PORTFOLIO_PDF}" download>Portfolio (PDF) <span aria-hidden="true">↓</span></a></li>
             <li><a href="{CV_IT}" download>CV italiano (PDF) <span aria-hidden="true">↓</span></a></li>
             <li><a href="{CV_EN}" download lang="en">English CV (PDF) <span aria-hidden="true">↓</span></a></li>
             <li><a href="{LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span>{NEW_TAB}</a></li>
@@ -465,16 +467,28 @@ def contatti_transform(main):
 
 
 def cv_transform(main):
-    return form_note(main, "cv-form-title")
+    # The redesigned CV is intentionally curated as a complete page in the repository.
+    # Reuse its current <main> so a future site rebuild cannot restore the older UX-only CV.
+    current = (ROOT / "cv.html").read_text()
+    match = re.search(r"<main.*?</main>", current, re.S)
+    return match.group(0) if match else form_note(main, "cv-form-title")
 
 
 def federlus_page_transform(main):
-    return form_note(federlus_transform(main), "federlus-form-title")
+    # Preserve the checked-in career progression (2020–present) on future rebuilds.
+    current = (ROOT / "esperienza-federlus.html").read_text()
+    match = re.search(r"<main.*?</main>", current, re.S)
+    return match.group(0) if match else form_note(federlus_transform(main), "federlus-form-title")
 
 
 # ---------------------------------------------------------------- home
 
 def home():
+    # The PARALLAX homepage now contains curated multidisciplinary positioning and
+    # document links. Preserve that checked-in page on future rebuilds.
+    current_path = ROOT / "index.html"
+    if current_path.exists() and "Graphic &amp; Web Designer · UX/UI Designer · Junior Project Manager" in current_path.read_text():
+        return
     tpl = (HERE / "home.template.html").read_text()
     word = lambda w: '<span class="word">' + "".join(f'<span aria-hidden="true">{c}</span>' for c in w) + "</span>"
     headmeta = """<meta name="description" content="Portfolio di Benedetta Petrucci, UX/UI e visual designer a Roma: case study Farmacia Altesi + Altea, JOJOB, INCLUDO, LinkedIn Personal Branding e AI Assistant, esperienza professionale in FederLUS, CV e contatti.">
@@ -668,3 +682,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

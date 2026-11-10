@@ -228,6 +228,10 @@ def en_href(value, name):
 
 
 def build_page(name, table):
+    # The English CV is a curated translation of the redesigned page. Keep it intact
+    # instead of rebuilding it from the historical Italian source and losing new copy.
+    if name in {"index.html", "esperienza-federlus.html", "cv.html"} and (OUT / site.EN_SLUG[name]).exists():
+        return (OUT / site.EN_SLUG[name]).read_text(), []
     src = (ROOT / name).read_text()
     slug = site.EN_SLUG[name]
     it_href = "../" + ("index.html" if name == "index.html" else name)
@@ -291,7 +295,7 @@ def build_page(name, table):
     src = src.replace(f'<meta property="og:url" content="{page_url}">', f'<meta property="og:url" content="{en_url}">')
     src = re.sub(r'(\s(?:href|src|action)=")([^"]*)(")', lambda m: m.group(1) + en_href(m.group(2), name) + m.group(3), src)
     # The English pages offer the English CV first: CV links that do not name the Italian version use it.
-    src = re.sub(r'(<a [^>]*href=")\.\./assets/pdf/Benedetta_Petrucci_CV_UX_UI_IT_2026\.pdf("[^>]*>)(.*?)(</a>)',
+    src = re.sub(r'(<a [^>]*href=")\.\./assets/pdf/Benedetta_Petrucci_CV_Graphic_Web_UX_IT_2026\.pdf("[^>]*>)(.*?)(</a>)',
                  lambda m: m.group(0) if "Italian" in m.group(3) else m.group(1) + "../" + site.CV_EN + m.group(2) + m.group(3) + m.group(4),
                  src, flags=re.S)
     src = src.replace('name="origine" value="Pagina Contatti"', 'name="origine" value="Pagina Contatti (versione inglese)"')
@@ -328,3 +332,4 @@ if __name__ == "__main__":
         merge(sys.argv[sys.argv.index("--merge") + 1])
     else:
         build()
+
